@@ -44,9 +44,10 @@
   /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(251,253,252,0.86);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
+    background:rgba(255,255,255,0.42);
+    backdrop-filter:blur(20px) saturate(180%);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    border-bottom:1px solid rgba(255,255,255,0.5);
   }
   nav{
     display:flex; align-items:center; justify-content:space-between;
@@ -89,10 +90,12 @@
   section{padding:16px 0 64px;}
 
   /* ---------- ACTIVITY GRID (click-to-expand tiles) ---------- */
-  .activity-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:start;}
+  .activity-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; align-items:start;}
   @media (max-width:760px){ .activity-grid{grid-template-columns:1fr;} }
   .activity-tile{
-    background:var(--bg-alt); border:1px solid var(--line); overflow:hidden;
+    background:rgba(255,255,255,0.42); border:1px solid rgba(255,255,255,0.55); overflow:hidden;
+    backdrop-filter:blur(18px) saturate(180%); -webkit-backdrop-filter:blur(18px) saturate(180%);
+    box-shadow:0 8px 32px rgba(16,19,15,0.05);
   }
   .activity-tile summary{
     list-style:none; cursor:pointer; padding:30px 20px;
@@ -102,7 +105,7 @@
   }
   .activity-tile summary::-webkit-details-marker{display:none;}
   .activity-tile summary:hover{background:rgba(36,119,255,0.06);}
-  .activity-tile[open] summary{border-bottom:1px solid var(--line); background:var(--white);}
+  .activity-tile[open] summary{border-bottom:1px solid rgba(255,255,255,0.5); background:rgba(255,255,255,0.25);}
   .tile-icon{width:40px; height:40px; color:var(--neon-text);}
   .tile-icon svg{width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;}
   .tile-label{font-weight:700; font-size:15px; color:var(--ink);}
@@ -123,7 +126,8 @@
 
   /* ---------- FOOTER ---------- */
   footer{
-    background:#0A0C0B; color:#EDEFEC;
+    background:rgba(10,12,11,0.72); color:#EDEFEC;
+    backdrop-filter:blur(18px) saturate(160%); -webkit-backdrop-filter:blur(18px) saturate(160%);
     padding:48px 0 32px;
     border-top:1px solid var(--line);
   }
@@ -140,8 +144,9 @@
 <header>
   <div class="wrap">
     <nav>
-      <div class="brand"><a href="index.html" style="text-decoration:none; color:inherit;">SEUNGCHEOL SHIN</a></div>
+      <div class="brand"><a href="index.html" style="text-decoration:none; color:inherit;">신승철</a></div>
       <div class="navlinks">
+        <a href="index.html">타임라인</a>
         <a href="projects.html">프로젝트</a>
         <a href="skills.html">역량구성</a>
         <a href="activities.html" class="active">대외활동</a>
