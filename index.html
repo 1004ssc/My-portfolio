@@ -122,8 +122,12 @@
     background:
       radial-gradient(circle at 30% 24%, rgba(255,255,255,0.95), rgba(255,255,255,0) 42%),
       conic-gradient(from 210deg at 50% 50%,
-        rgba(30,140,255,0.16), rgba(150,200,255,0.10), rgba(255,255,255,0.10),
-        rgba(30,140,255,0.16)),
+        rgba(30,140,255,0.18), rgba(150,200,255,0.12), rgba(255,255,255,0.10),
+        rgba(30,140,255,0.18)),
+      repeating-linear-gradient(0deg, rgba(16,19,15,0.10) 0px, rgba(16,19,15,0.10) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(90deg, rgba(16,19,15,0.10) 0px, rgba(16,19,15,0.10) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(0deg, rgba(16,19,15,0.05) 0px, rgba(16,19,15,0.05) 0.6px, transparent 0.6px, transparent 8px),
+      repeating-linear-gradient(90deg, rgba(16,19,15,0.05) 0px, rgba(16,19,15,0.05) 0.6px, transparent 0.6px, transparent 8px),
       repeating-radial-gradient(circle at 50% 50%, rgba(0,0,0,0.035) 0px, rgba(0,0,0,0.035) 1px, transparent 1px, transparent 5px),
       radial-gradient(circle at 50% 50%, #F1F5F2 0%, #DDE6E1 55%, #C6D1CA 100%);
     box-shadow:
@@ -180,9 +184,11 @@
   .timeline-track::before{
     content:"";
     position:absolute;
-    left:162px; top:6px; bottom:6px; width:2px;
-    background:linear-gradient(to bottom, var(--neon), var(--line) 12%, var(--line) 88%, transparent);
-    opacity:0.55;
+    left:162px; top:4px; bottom:4px; width:2px;
+    background:linear-gradient(to bottom,
+      var(--neon) 0, var(--neon) 4%,
+      rgba(16,19,15,0.18) 4%, rgba(16,19,15,0.18) 96%,
+      transparent 100%);
   }
   @media (max-width:640px){ .timeline-track::before{display:none;} }
   .exp-item{
