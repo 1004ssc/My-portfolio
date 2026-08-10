@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대외활동 | 신승철 포트폴리오</title>
+<meta name="description" content="대외활동 페이지 (준비 중)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFDFC;
+    --bg-alt:#F2F6F4;
+    --ink:#10130F;
+    --ink-soft:#5A625D;
+    --line:#DEE5E0;
+    --neon:#2477FF;
+    --neon-text:#175BD1;
+    --neon-glow:rgba(36,119,255,0.30);
+    --danger:#E8341F;
+    --white:#FFFFFF;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(circle at 10% -8%, rgba(36,119,255,0.10), transparent 42%),
+      radial-gradient(circle at 106% 6%, rgba(36,119,255,0.08), transparent 38%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex; flex-direction:column;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,253,252,0.86);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{font-family:'Pretendard', sans-serif; font-weight:800; font-size:16px; letter-spacing:0.04em;}
+  .navlinks{display:flex; gap:28px; font-size:13px; color:var(--ink-soft);}
+  .navlinks a{text-decoration:none; transition:color .2s;}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--ink);}
+  .navlinks a.active{color:var(--ink); font-weight:600; box-shadow:0 2px 0 var(--neon);}
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  main{flex:1; display:flex; align-items:center;}
+
+  .empty-wrap{padding:96px 0;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    color:var(--neon-text);
+    text-transform:uppercase;
+    margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--neon);}
+  h1{
+    font-family:'Pretendard', sans-serif;
+    font-weight:800;
+    font-size:clamp(28px, 4.2vw, 40px);
+    letter-spacing:-0.01em;
+    margin-bottom:18px;
+  }
+  .empty-card{
+    margin-top:36px;
+    border:1px dashed var(--line);
+    background:var(--bg-alt);
+    padding:48px 32px;
+    text-align:center;
+    max-width:560px;
+  }
+  .empty-card .tag{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:0.1em;
+    color:var(--neon-text);
+    border:1px solid var(--line);
+    background:var(--white);
+    padding:6px 12px;
+    box-shadow:0 0 16px var(--neon-glow);
+    margin-bottom:18px;
+  }
+  .empty-card p{color:var(--ink-soft); font-size:14px; max-width:44ch; margin:0 auto;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:#0A0C0B; color:#EDEFEC;
+    padding:48px 0 32px;
+    border-top:1px solid var(--line);
+  }
+  footer h2{font-family:'Pretendard', sans-serif; font-weight:800; font-size:22px; margin-bottom:14px; color:#FFFFFF;}
+  footer p{color:#9CA4A0; font-size:14px; max-width:56ch;}
+  .contact-row{margin-top:24px; display:flex; gap:28px; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; font-size:13px;}
+  .contact-row a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.25); padding-bottom:2px;}
+  .contact-row a:hover{border-color:var(--neon); color:var(--neon);}
+  .fine{margin-top:36px; font-size:11px; color:#5C635F; border-top:1px solid #202422; padding-top:18px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><a href="index.html" style="text-decoration:none; color:inherit;">SEUNGCHEOL SHIN</a></div>
+      <div class="navlinks">
+        <a href="index.html#projects">프로젝트</a>
+        <a href="activities.html" class="active">대외활동</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap empty-wrap">
+    <div class="eyebrow">EXTRACURRICULAR</div>
+    <h1>대외활동</h1>
+    <div class="empty-card">
+      <div class="tag">COMING SOON</div>
+      <p>대외활동 내용을 준비 중입니다. 곧 업데이트될 예정이니 조금만 기다려 주세요.</p>
+    </div>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>연락 주시면 빠르게 답변드리겠습니다</h2>
+    <p>SK하이닉스 양산기술을 비롯한 반도체·제조 현장 직무에 지원 중입니다. 이력서 및 상세 포트폴리오 PDF는 요청 시 전달드립니다.</p>
+    <div class="contact-row">
+      <a href="mailto:example@email.com">example@email.com</a>
+      <a href="tel:010-0000-0000">010-0000-0000</a>
+      <a href="#" aria-label="LinkedIn 프로필">LinkedIn</a>
+    </div>
+    <div class="fine">© 2026 Shin Seung-cheol. Built with Claude Code.</div>
+  </div>
+</footer>
+
+</body>
+</html>

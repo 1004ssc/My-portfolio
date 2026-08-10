@@ -7,7 +7,7 @@
 <meta name="description" content="WM-811K 웨이퍼맵 데이터셋 구조, 결함 패턴 9종, 표기 방식을 정리한 분석 페이지">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&family=Pretendard:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FBFDFC;
@@ -15,9 +15,9 @@
     --ink:#10130F;
     --ink-soft:#5A625D;
     --line:#DEE5E0;
-    --neon:#00C97A;
-    --neon-text:#0B8F57;
-    --neon-glow:rgba(0,201,122,0.30);
+    --neon:#2477FF;
+    --neon-text:#175BD1;
+    --neon-glow:rgba(36,119,255,0.30);
     --danger:#E8341F;
     --white:#FFFFFF;
     --radius:2px;
@@ -26,8 +26,8 @@
   html{scroll-behavior:smooth;}
   body{
     background:
-      radial-gradient(circle at 10% -8%, rgba(0,201,122,0.10), transparent 42%),
-      radial-gradient(circle at 106% 6%, rgba(0,201,122,0.08), transparent 38%),
+      radial-gradient(circle at 10% -8%, rgba(36,119,255,0.10), transparent 42%),
+      radial-gradient(circle at 106% 6%, rgba(36,119,255,0.08), transparent 38%),
       var(--bg);
     color:var(--ink);
     font-family:'Pretendard', -apple-system, sans-serif;
@@ -37,7 +37,6 @@
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important; transition:none !important;}
   }
-  .serif{font-family:'Noto Serif KR', serif;}
   .mono{font-family:'JetBrains Mono', monospace;}
   a{color:inherit;}
   .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
@@ -53,8 +52,7 @@
     display:flex; align-items:center; justify-content:space-between;
     padding:18px 0;
   }
-  .brand{font-family:'Noto Serif KR', serif; font-weight:700; font-size:17px; letter-spacing:0.02em;}
-  .brand span{color:var(--ink-soft);}
+  .brand{font-family:'Pretendard', sans-serif; font-weight:800; font-size:16px; letter-spacing:0.04em;}
   .navlinks{display:flex; gap:28px; font-size:13px; color:var(--ink-soft);}
   .navlinks a{text-decoration:none; transition:color .2s;}
   .navlinks a:hover, .navlinks a:focus-visible{color:var(--ink);}
@@ -76,8 +74,8 @@
   }
   .eyebrow::before{content:""; width:22px; height:1px; background:var(--neon);}
   .hero h1{
-    font-family:'Noto Serif KR', serif;
-    font-weight:700;
+    font-family:'Pretendard', sans-serif;
+    font-weight:800;
     font-size:clamp(30px, 4.6vw, 46px);
     line-height:1.32;
     letter-spacing:-0.01em;
@@ -122,7 +120,7 @@
     font-size:12px; color:var(--neon-text); letter-spacing:0.08em;
   }
   .section-head h2{
-    font-family:'Noto Serif KR', serif; font-weight:700; font-size:22px; color:var(--ink);
+    font-family:'Pretendard', sans-serif; font-weight:800; font-size:22px; color:var(--ink);
   }
   .section-note{
     font-size:14px; color:var(--ink-soft); max-width:70ch; margin-bottom:28px;
@@ -173,7 +171,7 @@
   .encode-card .val{
     font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--neon-text); letter-spacing:0.06em;
   }
-  .encode-card h4{font-family:'Noto Serif KR', serif; font-size:15px; margin:4px 0 6px; color:var(--ink);}
+  .encode-card h4{font-family:'Pretendard', sans-serif; font-weight:700; font-size:15px; margin:4px 0 6px; color:var(--ink);}
   .encode-card p{font-size:13px; color:var(--ink-soft);}
 
   .field-note{
@@ -191,8 +189,8 @@
     background:
       radial-gradient(circle at 30% 22%, rgba(255,255,255,0.95), rgba(255,255,255,0) 42%),
       conic-gradient(from 210deg at 50% 50%,
-        rgba(0,255,150,0.16), rgba(150,255,215,0.10), rgba(255,255,255,0.10),
-        rgba(0,255,150,0.16)),
+        rgba(30,140,255,0.16), rgba(150,200,255,0.10), rgba(255,255,255,0.10),
+        rgba(30,140,255,0.16)),
       repeating-radial-gradient(circle at 50% 50%, rgba(0,0,0,0.035) 0px, rgba(0,0,0,0.035) 1px, transparent 1px, transparent 5px),
       radial-gradient(circle at 50% 50%, #F1F5F2 0%, #DDE6E1 55%, #C6D1CA 100%);
     box-shadow:
@@ -222,7 +220,7 @@
     font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--neon-text);
     letter-spacing:0.06em; display:flex; justify-content:space-between; margin-bottom:8px;
   }
-  .pattern-body h3{font-family:'Noto Serif KR', serif; font-size:16px; margin-bottom:6px; color:var(--ink);}
+  .pattern-body h3{font-family:'Pretendard', sans-serif; font-weight:700; font-size:16px; margin-bottom:6px; color:var(--ink);}
   .pattern-body p{font-size:13px; color:var(--ink-soft);}
   .pattern-body .count{
     font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-soft); margin-top:10px;
@@ -236,7 +234,7 @@
     padding:48px 0 32px;
     border-top:1px solid var(--line);
   }
-  footer h2{font-family:'Noto Serif KR', serif; font-size:22px; margin-bottom:14px; color:#FFFFFF;}
+  footer h2{font-family:'Pretendard', sans-serif; font-weight:800; font-size:22px; margin-bottom:14px; color:#FFFFFF;}
   footer p{color:#9CA4A0; font-size:14px; max-width:56ch;}
   .contact-row{margin-top:24px; display:flex; gap:28px; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; font-size:13px;}
   .contact-row a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.25); padding-bottom:2px;}
@@ -249,13 +247,10 @@
 <header>
   <div class="wrap">
     <nav>
-      <div class="brand"><a href="index.html" style="text-decoration:none; color:inherit;">신승철 <span>/ SEUNGCHEOL SHIN</span></a></div>
+      <div class="brand"><a href="index.html" style="text-decoration:none; color:inherit;">SEUNGCHEOL SHIN</a></div>
       <div class="navlinks">
-        <a href="index.html">홈</a>
-        <a href="#structure">데이터 구조</a>
-        <a href="#encoding">표기 방식</a>
-        <a href="#types" class="active">결함 유형</a>
-        <a href="index.html#contact">연락처</a>
+        <a href="index.html#projects">프로젝트</a>
+        <a href="activities.html">대외활동</a>
       </div>
     </nav>
   </div>
