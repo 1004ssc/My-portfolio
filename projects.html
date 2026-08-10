@@ -24,6 +24,7 @@
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
+  [id]{scroll-margin-top:88px;}
   body{
     background:
       radial-gradient(circle at 10% -8%, rgba(36,119,255,0.10), transparent 42%),
@@ -246,7 +247,7 @@
     </div>
 
     <!-- Project 1: Wafer map analysis -->
-    <div class="star-card">
+    <div class="star-card" id="wafer-project">
       <div class="sc-head">
         <div class="sc-titles">
           <div class="sc-title">웨이퍼맵 결함 패턴 분석</div>
@@ -286,12 +287,13 @@
         </div>
       </div>
       <div class="sc-footlink">
-        <a class="btn" href="wafer-analysis.html">프로젝트 자세히 보기 →</a>
+        <a class="btn" href="wafer-analysis.html#process">프로젝트 자세히 보기 →</a>
+        <a class="btn" href="index.html#timeline-wafer">타임라인에서 보기 ↑</a>
       </div>
     </div>
 
     <!-- Project 2: Service lead -->
-    <div class="star-card">
+    <div class="star-card" id="service-lead">
       <div class="sc-head">
         <div class="sc-titles">
           <div class="sc-title">서비스 총괄 리드</div>
@@ -345,10 +347,11 @@
           </div>
         </div>
       </div>
+      <div class="sc-footlink"><a class="btn" href="index.html#timeline-service">타임라인에서 보기 ↑</a> <a class="btn" href="skills.html#growth">관련 역량 보기 →</a></div>
     </div>
 
     <!-- Project 3: TAARA -->
-    <div class="star-card">
+    <div class="star-card" id="virtual-fitting">
       <div class="sc-head">
         <div class="sc-titles">
           <div class="sc-title">공동창업 · 프로젝트 총괄</div>
@@ -393,6 +396,7 @@
           </div>
         </div>
       </div>
+      <div class="sc-footlink"><a class="btn" href="index.html#timeline-virtual-fitting">타임라인에서 보기 ↑</a> <a class="btn" href="activities.html#silicon-valley">관련 대외활동 보기 →</a></div>
     </div>
   </section>
 
@@ -403,7 +407,7 @@
     </div>
     <p class="section-note">서로 다른 세 서비스를 기획부터 운영까지 이끈 과정을 역할과 판단 중심으로 다시 정리했습니다. 사업자명과 서비스명은 비공개로 처리했습니다.</p>
     <div class="archive-grid">
-      <article class="archive-card">
+      <article class="archive-card" id="archive-virtual-fitting">
         <div class="archive-num">PROJECT 01</div>
         <h3>AI 가상 피팅 서비스</h3>
         <div class="archive-period">2022.01 — 2024.03</div>
@@ -411,7 +415,7 @@
         <ul><li>정부지원금 5,100만 원 확보·집행</li><li>5인 제품 개발 조직 구성</li><li>특허 2건·상표 4건 출원</li><li>실리콘밸리 프로그램에서 시장 검증</li></ul>
         <div class="learning"><b>배운 점</b> — 기술 구현 가능성과 고객이 실제로 써야 할 이유 사이의 간극을 제품 관점에서 확인했습니다.</div>
       </article>
-      <article class="archive-card">
+      <article class="archive-card" id="matching-platform">
         <div class="archive-num">PROJECT 02</div>
         <h3>사용자 매칭 플랫폼</h3>
         <div class="archive-period">2024.04 — 2025.03</div>

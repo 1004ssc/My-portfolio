@@ -24,6 +24,7 @@
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
+  [id]{scroll-margin-top:88px;}
   body{
     background:
       radial-gradient(circle at 10% -8%, rgba(36,119,255,0.10), transparent 42%),
@@ -161,6 +162,7 @@
   }
   .skill-card h3{font-family:'Pretendard', sans-serif; font-weight:700; font-size:16px; margin-bottom:8px; color:var(--ink);}
   .skill-card p{font-size:13.5px; color:var(--ink-soft);}
+  .related-link{display:inline-block; margin-top:12px; font-size:12px; font-weight:600; color:var(--neon-text); text-decoration:none; border-bottom:1px solid rgba(36,119,255,.3);}
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -275,35 +277,39 @@
       <h2>세부 역량</h2>
     </div>
     <div class="skill-grid">
-      <div class="skill-card">
+      <div class="skill-card" id="engineering">
         <div class="k">DIE.01 — ENGINEERING</div>
         <h3>전자공학 기초 역량</h3>
         <p>한양대학교 융합전자공학부 전공, 반도체 공정 실습(렛유인 반도체 공정실습 과정) 이수로 이론과 실습을 병행.</p>
+        <a class="related-link" href="index.html#timeline-wafer">관련 타임라인 보기 ↑</a>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" id="operations">
         <div class="k">DIE.02 — OPERATIONS</div>
         <h3>실전 사업 운영 경험</h3>
         <p>4년간 3개 서비스를 기획부터 마케팅, 재무, 조직까지 직접 총괄한 엔드투엔드 운영 경험.</p>
+        <a class="related-link" href="projects.html#service-lead">관련 프로젝트 보기 →</a>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" id="growth">
         <div class="k">DIE.03 — DATA & GROWTH</div>
         <h3>데이터 기반 그로스</h3>
         <p>퍼포먼스 마케팅 지표(ROAS, 전환율) 기반 의사결정, A/B 테스트 및 퍼널 최적화 실무 경험.</p>
+        <a class="related-link" href="projects.html#service-lead">관련 프로젝트 보기 →</a>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" id="global">
         <div class="k">DIE.04 — GLOBAL</div>
         <h3>글로벌 확장 지향</h3>
         <p>JLPT N2 취득 준비 중, 해외 시장(일본 등) 진출을 염두에 둔 언어·시장 학습 지속.</p>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" id="tooling">
         <div class="k">DIE.05 — TOOLING</div>
         <h3>생성형 AI·자동화 툴 활용</h3>
         <p>Figma, 생성형 AI 이미지·영상 툴을 활용한 콘텐츠 자동화 및 업무 효율화 경험.</p>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" id="resilience">
         <div class="k">DIE.06 — RESILIENCE</div>
         <h3>불확실성 대응력</h3>
         <p>3회의 사업 피벗과 군 복무 중 독학을 통한 7개 대학 동시 합격 등, 변화 상황에서의 실행력.</p>
+        <a class="related-link" href="index.html#timeline">관련 타임라인 보기 ↑</a>
       </div>
     </div>
   </section>
