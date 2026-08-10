@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신승철 | 양산기술 지원자 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&family=Pretendard:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EFE9;
+    --paper-dim:#E8E3D8;
+    --ink:#16232E;
+    --ink-soft:#4B5A63;
+    --celadon:#3F6E71;
+    --celadon-dark:#2C4E50;
+    --brass:#A9824C;
+    --line:#D3CCBB;
+    --white:#FBFAF7;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+  .serif{font-family:'Noto Serif KR', serif;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+
+  a{color:inherit;}
+
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(242,239,233,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{font-family:'Noto Serif KR', serif; font-weight:700; font-size:17px; letter-spacing:0.02em;}
+  .brand span{color:var(--celadon);}
+  .navlinks{display:flex; gap:28px; font-size:13px; color:var(--ink-soft);}
+  .navlinks a{text-decoration:none; transition:color .2s;}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--celadon-dark);}
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 64px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:860px){ .hero{grid-template-columns:1fr; padding:56px 0 40px;} }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    color:var(--brass);
+    text-transform:uppercase;
+    margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--brass);}
+
+  .hero h1{
+    font-family:'Noto Serif KR', serif;
+    font-weight:700;
+    font-size:clamp(32px, 5vw, 50px);
+    line-height:1.28;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--celadon-dark);
+    border-bottom:2px solid var(--brass);
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero-cta{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-size:13px; font-weight:600;
+    padding:12px 22px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    display:inline-block;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--white);}
+  .btn-primary:hover{background:var(--celadon-dark);}
+  .btn-ghost{border:1px solid var(--ink); color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:var(--white);}
+  .btn:focus-visible{outline:2px solid var(--celadon); outline-offset:2px;}
+
+  /* ---------- WAFER SIGNATURE ---------- */
+  .wafer-box{display:flex; justify-content:center; align-items:center;}
+  .wafer-caption{
+    text-align:center; margin-top:14px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; color:var(--ink-soft); letter-spacing:0.04em;
+  }
+  .die{transition:opacity .2s ease;}
+  .die:hover{opacity:0.72; cursor:default;}
+  .die-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:8.5px; fill:var(--white); letter-spacing:0.02em;
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:36px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:16px;
+  }
+  .lot-id{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--brass); letter-spacing:0.08em;
+  }
+  .section-head h2{
+    font-family:'Noto Serif KR', serif; font-weight:700; font-size:24px;
+  }
+
+  /* ---------- STATS STRIP ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:1px; background:var(--line);
+    border:1px solid var(--line);
+    margin-bottom:8px;
+  }
+  @media (max-width:640px){ .stats{grid-template-columns:repeat(2,1fr);} }
+  .stat{background:var(--white); padding:22px 18px;}
+  .stat .num{font-family:'JetBrains Mono', monospace; font-size:26px; font-weight:600; color:var(--celadon-dark);}
+  .stat .lbl{font-size:12px; color:var(--ink-soft); margin-top:6px;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-item{
+    display:grid; grid-template-columns:150px 1fr; gap:24px;
+    padding:28px 0; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:640px){ .exp-item{grid-template-columns:1fr; gap:8px;} }
+  .exp-item:last-child{border-bottom:none;}
+  .exp-period{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft);}
+  .exp-role{font-weight:700; font-size:16px; margin-bottom:4px;}
+  .exp-org{font-size:13px; color:var(--celadon-dark); margin-bottom:10px; font-weight:600;}
+  .exp-desc{font-size:14.5px; color:var(--ink-soft); max-width:62ch;}
+  .exp-desc ul{margin-top:8px; padding-left:18px;}
+  .exp-desc li{margin-bottom:5px;}
+  .tag-row{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    background:var(--paper-dim); border:1px solid var(--line);
+    padding:4px 9px; color:var(--ink-soft);
+  }
+
+  /* ---------- SKILLS GRID ---------- */
+  .skill-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:760px){ .skill-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .skill-grid{grid-template-columns:1fr;} }
+  .skill-card{
+    background:var(--white); border:1px solid var(--line); padding:22px;
+  }
+  .skill-card .k{
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--brass);
+    margin-bottom:10px; letter-spacing:0.06em;
+  }
+  .skill-card h3{font-family:'Noto Serif KR', serif; font-size:16px; margin-bottom:8px;}
+  .skill-card p{font-size:13.5px; color:var(--ink-soft);}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-item{display:flex; justify-content:space-between; gap:20px; padding:16px 0; border-bottom:1px solid var(--line);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item .school{font-weight:700; font-size:15px;}
+  .edu-item .detail{font-size:13px; color:var(--ink-soft); margin-top:3px;}
+  .edu-item .period{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft); white-space:nowrap;}
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{
+    background:var(--ink); color:var(--paper);
+    padding:56px 0 32px;
+  }
+  footer h2{font-family:'Noto Serif KR', serif; font-size:24px; margin-bottom:14px;}
+  footer p{color:#B7C2C6; font-size:14px; max-width:50ch;}
+  .contact-row{margin-top:26px; display:flex; gap:28px; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; font-size:13px;}
+  .contact-row a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:2px;}
+  .contact-row a:hover{border-color:var(--brass); color:var(--brass);}
+  .fine{margin-top:40px; font-size:11px; color:#6E7E85; border-top:1px solid #2A3944; padding-top:18px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">신승철 <span>/ SEUNGCHEOL SHIN</span></div>
+      <div class="navlinks">
+        <a href="#exp">경력</a>
+        <a href="#skills">역량</a>
+        <a href="#edu">학력</a>
+        <a href="#contact">연락처</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">TARGET · SK하이닉스 양산기술</div>
+      <h1>한양대 전자공학 타이틀에<br><em>실전 사업운영 경험</em>을 더한<br>문과 영역 인재</h1>
+      <p class="lead">
+        4년간 3개 서비스를 직접 리드하며 마케팅·데이터·조직 운영을 총괄한 경험을,
+        전자공학 전공 지식과 결합해 공정·품질 데이터를 다루는 현장 직무에 적용하고자 합니다.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#exp">경력 상세 보기</a>
+        <a class="btn btn-ghost" href="#contact">연락처</a>
+      </div>
+    </div>
+
+    <div class="wafer-box">
+      <svg width="320" height="320" viewBox="0 0 320 320" role="img" aria-label="역량 구성을 웨이퍼 다이 맵 형태로 표현한 다이어그램">
+        <circle cx="160" cy="160" r="150" fill="none" stroke="#D3CCBB" stroke-width="1.5"/>
+        <path d="M 60 60 L 100 20" stroke="#D3CCBB" stroke-width="1.5" fill="none"/>
+        <!-- notch -->
+        <circle cx="160" cy="20" r="6" fill="#F2EFE9" stroke="#D3CCBB" stroke-width="1.5"/>
+
+        <!-- die grid -->
+        <g>
+          <!-- row pattern approximating a circular wafer die layout -->
+          <g id="dies"></g>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <div class="wafer-caption" style="margin-top:-40px; margin-bottom:56px;">WAFER MAP — 4 DOMAIN COMPETENCY DIES</div>
+
+  <!-- ---------- STATS ---------- -->
+  <section id="stats" style="padding-top:0;">
+    <div class="stats">
+      <div class="stat"><div class="num">4</div><div class="lbl">서비스 총괄 리드 경험 (년)</div></div>
+      <div class="stat"><div class="num">35.9%</div><div class="lbl">퍼널 전환율 (연분당 기준)</div></div>
+      <div class="stat"><div class="num">2.06–2.23x</div><div class="lbl">광고 ROAS</div></div>
+      <div class="stat"><div class="num">7관왕</div><div class="lbl">동시 편입 합격 대학 수</div></div>
+    </div>
+  </section>
+
+  <!-- ---------- EXPERIENCE ---------- -->
+  <section id="exp">
+    <div class="section-head">
+      <span class="lot-id">LOT-01</span>
+      <h2>경력 · 프로젝트 리드 이력</h2>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">2025 — 2026</div>
+      <div>
+        <div class="exp-role">서비스 총괄 리드</div>
+        <div class="exp-org">사주 데이터 기반 커머스 브랜드 (연분당 외)</div>
+        <div class="exp-desc">
+          이별·재회, 결혼 등 라이프스테이지별 사주 데이터 분석 서비스를 기획부터 마케팅, 운영까지 총괄. 현재는 사업 정리 및 일부 서비스 매각을 완료하고 취업 준비에 집중하고 있습니다.
+          <ul>
+            <li>퍼포먼스 마케팅(Meta, X, 틱톡) 운영으로 누적 사용자 1만 명 이상 확보</li>
+            <li>피크 월 매출 2,500만 원 달성, 광고 효율 ROAS 2.06–2.23배 유지</li>
+            <li>프리랜서 계약 기반 팀 구조 설계로 고정비 대비 매출 효율 극대화</li>
+          </ul>
+        </div>
+        <div class="tag-row">
+          <span class="tag">퍼포먼스 마케팅</span>
+          <span class="tag">데이터 기반 의사결정</span>
+          <span class="tag">조직 운영</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">2022 — 2024</div>
+      <div>
+        <div class="exp-role">공동창업 · 프로젝트 총괄</div>
+        <div class="exp-org">AI 가상 피팅 서비스 (TAARA)</div>
+        <div class="exp-desc">
+          AI 기반 가상 피팅 서비스를 공동창업하여 제품 기획, 정부지원사업 수행, 팀 운영을 담당.
+          <ul>
+            <li>예비창업패키지 선정 및 정부지원금 5,100만 원 확보·집행</li>
+            <li>5인 규모 정규 팀 운영, 특허 출원 진행</li>
+            <li>실리콘밸리 프로그램 참가로 글로벌 시장 검증 경험 확보 (2023.01)</li>
+          </ul>
+        </div>
+        <div class="tag-row">
+          <span class="tag">제품 기획</span>
+          <span class="tag">정부지원사업</span>
+          <span class="tag">팀 빌딩</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- SKILLS ---------- -->
+  <section id="skills">
+    <div class="section-head">
+      <span class="lot-id">LOT-02</span>
+      <h2>역량 구성</h2>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="k">DIE.01 — ENGINEERING</div>
+        <h3>전자공학 기초 역량</h3>
+        <p>한양대학교 융합전자공학부 전공, 반도체 공정 실습(렛유인 반도체 공정실습 과정) 이수로 이론과 실습을 병행.</p>
+      </div>
+      <div class="skill-card">
+        <div class="k">DIE.02 — OPERATIONS</div>
+        <h3>실전 사업 운영 경험</h3>
+        <p>4년간 3개 서비스를 기획부터 마케팅, 재무, 조직까지 직접 총괄한 엔드투엔드 운영 경험.</p>
+      </div>
+      <div class="skill-card">
+        <div class="k">DIE.03 — DATA & GROWTH</div>
+        <h3>데이터 기반 그로스</h3>
+        <p>퍼포먼스 마케팅 지표(ROAS, 전환율) 기반 의사결정, A/B 테스트 및 퍼널 최적화 실무 경험.</p>
+      </div>
+      <div class="skill-card">
+        <div class="k">DIE.04 — GLOBAL</div>
+        <h3>글로벌 확장 지향</h3>
+        <p>JLPT N2 취득 준비 중, 해외 시장(일본 등) 진출을 염두에 둔 언어·시장 학습 지속.</p>
+      </div>
+      <div class="skill-card">
+        <div class="k">DIE.05 — TOOLING</div>
+        <h3>생성형 AI·자동화 툴 활용</h3>
+        <p>Figma, 생성형 AI 이미지·영상 툴을 활용한 콘텐츠 자동화 및 업무 효율화 경험.</p>
+      </div>
+      <div class="skill-card">
+        <div class="k">DIE.06 — RESILIENCE</div>
+        <h3>불확실성 대응력</h3>
+        <p>3회의 사업 피벗과 군 복무 중 독학을 통한 7개 대학 동시 합격 등, 변화 상황에서의 실행력.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- EDUCATION ---------- -->
+  <section id="edu">
+    <div class="section-head">
+      <span class="lot-id">LOT-03</span>
+      <h2>학력</h2>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="school">한양대학교 · 융합전자공학부 (창업융합전공 부전공)</div>
+        <div class="detail">2026년 2월 졸업</div>
+      </div>
+      <div class="period">2021.09 — 2026.02</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="school">충북대학교 · 전기공학부</div>
+        <div class="detail">GPA 3.84 / 4.5 · 자기주도 학습을 통해 7개 대학 동시 편입 합격</div>
+      </div>
+      <div class="period">2019 — 2021</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="school">병역 · 무선통신 운용병</div>
+        <div class="detail">복무 중 편입 학습 병행</div>
+      </div>
+      <div class="period">2020.02 — 2021.08</div>
+    </div>
+  </section>
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>연락 주시면 빠르게 답변드리겠습니다</h2>
+    <p>SK하이닉스 양산기술을 비롯한 반도체·제조 현장 직무에 지원 중입니다. 이력서 및 상세 포트폴리오 PDF는 요청 시 전달드립니다.</p>
+    <div class="contact-row">
+      <a href="mailto:example@email.com">example@email.com</a>
+      <a href="tel:010-0000-0000">010-0000-0000</a>
+      <a href="#" aria-label="LinkedIn 프로필">LinkedIn</a>
+    </div>
+    <div class="fine">© 2026 Shin Seung-cheol. Built with Claude Code.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // 4 domain dies arranged on a wafer, each subdivided into small dice for a "die map" feel.
+  var svg = document.getElementById('dies');
+  var cx = 160, cy = 160, R = 150;
+  var quadrants = [
+    {label:'ENG',  color:'#3F6E71', angleStart:-135},
+    {label:'OPS',  color:'#A9824C', angleStart:-45},
+    {label:'DATA', color:'#2C4E50', angleStart:45},
+    {label:'GLBL', color:'#6E7E85', angleStart:135}
+  ];
+  var ns = "http://www.w3.org/2000/svg";
+
+  quadrants.forEach(function(q, qi){
+    var rows = 4;
+    for(var r=1; r<=rows; r++){
+      var rad = (R/rows)*r - (R/rows)/2;
+      var count = 3 + r; // more dies further out
+      for(var i=0;i<count;i++){
+        var a = (q.angleStart + (90/count)*i) * Math.PI/180;
+        var x = cx + rad*Math.cos(a);
+        var y = cy + rad*Math.sin(a);
+        if(Math.hypot(x-cx,y-cy) > R-8) continue;
+        var rect = document.createElementNS(ns,'rect');
+        var size = 13;
+        rect.setAttribute('x', x-size/2);
+        rect.setAttribute('y', y-size/2);
+        rect.setAttribute('width', size);
+        rect.setAttribute('height', size);
+        rect.setAttribute('fill', q.color);
+        rect.setAttribute('opacity', 0.85 - r*0.05);
+        rect.setAttribute('class','die');
+        svg.appendChild(rect);
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
