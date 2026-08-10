@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강점·약점 | 신승철 포트폴리오</title>
+<meta name="description" content="6축 육각형 차트로 정리한 강점과 성장 중인 부분">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFDFC;
+    --bg-alt:#F2F6F4;
+    --ink:#10130F;
+    --ink-soft:#5A625D;
+    --line:#DEE5E0;
+    --neon:#2477FF;
+    --neon-text:#175BD1;
+    --neon-glow:rgba(36,119,255,0.30);
+    --danger:#E8341F;
+    --white:#FFFFFF;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(circle at 10% -8%, rgba(36,119,255,0.10), transparent 42%),
+      radial-gradient(circle at 106% 6%, rgba(36,119,255,0.08), transparent 38%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,253,252,0.86);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{font-family:'Pretendard', sans-serif; font-weight:800; font-size:16px; letter-spacing:0.04em;}
+  .navlinks{display:flex; gap:28px; font-size:13px; color:var(--ink-soft);}
+  .navlinks a{text-decoration:none; transition:color .2s;}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--ink);}
+  .navlinks a.active{color:var(--ink); font-weight:600; box-shadow:0 2px 0 var(--neon);}
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 40px;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    color:var(--neon-text);
+    text-transform:uppercase;
+    margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--neon);}
+  .hero h1{
+    font-family:'Pretendard', sans-serif;
+    font-weight:800;
+    font-size:clamp(30px, 4.6vw, 46px);
+    line-height:1.32;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:66ch;
+  }
+
+  section{padding:8px 0 64px;}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:32px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:16px;
+  }
+  .lot-id{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--neon-text); letter-spacing:0.08em;
+  }
+  .section-head h2{
+    font-family:'Pretendard', sans-serif; font-weight:800; font-size:22px; color:var(--ink);
+  }
+
+  /* ---------- HEX CHART CARD ---------- */
+  .hex-card{
+    background:var(--bg-alt); border:1px solid var(--line);
+    padding:32px; display:flex; justify-content:center;
+    box-shadow:0 0 40px var(--neon-glow) inset, 0 0 0 1px rgba(0,0,0,0.02);
+  }
+  .hex-card svg{width:100%; max-width:420px; height:auto;}
+  .hex-grid{fill:none; stroke:var(--line); stroke-width:1;}
+  .hex-axis{stroke:var(--line); stroke-width:1;}
+  .hex-fill{fill:var(--neon); fill-opacity:0.18; stroke:var(--neon); stroke-width:2; stroke-linejoin:round;}
+  .hex-dot{fill:var(--neon); stroke:var(--white); stroke-width:1.5;}
+  .hex-label{
+    font-family:'JetBrains Mono', monospace; font-size:12px; fill:var(--ink-soft);
+  }
+  .hex-score{
+    font-family:'JetBrains Mono', monospace; font-size:10.5px; fill:var(--neon-text); font-weight:600;
+  }
+
+  /* ---------- STRENGTH LISTS ---------- */
+  .sw-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px;}
+  @media (max-width:700px){ .sw-grid{grid-template-columns:1fr;} }
+  .sw-card{background:var(--bg-alt); border:1px solid var(--line); padding:24px;}
+  .sw-card .sw-head{
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.08em;
+    text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:8px;
+  }
+  .sw-card.strength .sw-head{color:var(--neon-text);}
+  .sw-card.weakness .sw-head{color:var(--danger);}
+  .sw-dot{width:8px; height:8px; border-radius:50%;}
+  .sw-card.strength .sw-dot{background:var(--neon);}
+  .sw-card.weakness .sw-dot{background:var(--danger);}
+  .sw-card ul{list-style:none;}
+  .sw-card li{
+    padding:12px 0; border-bottom:1px solid var(--line); font-size:13.5px;
+  }
+  .sw-card li:last-child{border-bottom:none;}
+  .sw-card li b{display:block; font-size:14px; color:var(--ink); margin-bottom:3px; font-weight:700;}
+  .sw-card li span{color:var(--ink-soft);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:#0A0C0B; color:#EDEFEC;
+    padding:48px 0 32px;
+    border-top:1px solid var(--line);
+  }
+  footer h2{font-family:'Pretendard', sans-serif; font-weight:800; font-size:22px; margin-bottom:14px; color:#FFFFFF;}
+  footer p{color:#9CA4A0; font-size:14px; max-width:56ch;}
+  .contact-row{margin-top:24px; display:flex; gap:28px; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; font-size:13px;}
+  .contact-row a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.25); padding-bottom:2px;}
+  .contact-row a:hover{border-color:var(--neon); color:var(--neon);}
+  .fine{margin-top:36px; font-size:11px; color:#5C635F; border-top:1px solid #202422; padding-top:18px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><a href="index.html" style="text-decoration:none; color:inherit;">SEUNGCHEOL SHIN</a></div>
+      <div class="navlinks">
+        <a href="index.html#projects">프로젝트</a>
+        <a href="skills.html">역량구성</a>
+        <a href="strengths.html" class="active">강점·약점</a>
+        <a href="activities.html">대외활동</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">SELF ASSESSMENT</div>
+    <h1>강점 · 약점</h1>
+    <p class="lead">
+      전자공학 전공과 4년간의 실전 사업 운영 경험을 6개 축으로 자체 진단한 결과입니다. 역량 구성 페이지의 6개 DIE와 동일한 축을 사용해, 강점이 어느 영역에 집중돼 있는지 한눈에 볼 수 있게 정리했습니다.
+    </p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="lot-id">LOT-01</span>
+      <h2>6축 역량 다이어그램</h2>
+    </div>
+    <div class="hex-card">
+      <svg viewBox="-65 -20 530 440" role="img" aria-label="전자공학, 사업운영, 데이터 그로스, 글로벌, AI 자동화, 회복탄력성 6개 축의 역량 육각형 차트">
+        <!-- grid rings -->
+        <polygon class="hex-grid" points="200,162.5 232.5,181.25 232.5,218.75 200,237.5 167.5,218.75 167.5,181.25"/>
+        <polygon class="hex-grid" points="200,125 264.95,162.5 264.95,237.5 200,275 135.05,237.5 135.05,162.5"/>
+        <polygon class="hex-grid" points="200,87.5 297.425,143.75 297.425,256.25 200,312.5 102.575,256.25 102.575,143.75"/>
+        <polygon class="hex-grid" points="200,50 329.9,125 329.9,275 200,350 70.1,275 70.1,125"/>
+        <!-- axes -->
+        <line class="hex-axis" x1="200" y1="200" x2="200" y2="50"/>
+        <line class="hex-axis" x1="200" y1="200" x2="329.9" y2="125"/>
+        <line class="hex-axis" x1="200" y1="200" x2="329.9" y2="275"/>
+        <line class="hex-axis" x1="200" y1="200" x2="200" y2="350"/>
+        <line class="hex-axis" x1="200" y1="200" x2="70.1" y2="275"/>
+        <line class="hex-axis" x1="200" y1="200" x2="70.1" y2="125"/>
+        <!-- data polygon -->
+        <polygon class="hex-fill" points="200,102.5 319.5,131 310.4,263.8 200,282.5 96.1,260 80.5,131"/>
+        <circle class="hex-dot" cx="200" cy="102.5" r="4"/>
+        <circle class="hex-dot" cx="319.5" cy="131" r="4"/>
+        <circle class="hex-dot" cx="310.4" cy="263.8" r="4"/>
+        <circle class="hex-dot" cx="200" cy="282.5" r="4"/>
+        <circle class="hex-dot" cx="96.1" cy="260" r="4"/>
+        <circle class="hex-dot" cx="80.5" cy="131" r="4"/>
+        <!-- labels -->
+        <text class="hex-label" x="200" y="26" text-anchor="middle">전자공학</text>
+        <text class="hex-score" x="200" y="40" text-anchor="middle">65</text>
+        <text class="hex-label" x="352" y="110" text-anchor="start">사업 운영</text>
+        <text class="hex-score" x="352" y="124" text-anchor="start">92</text>
+        <text class="hex-label" x="352" y="284" text-anchor="start">데이터·그로스</text>
+        <text class="hex-score" x="352" y="298" text-anchor="start">85</text>
+        <text class="hex-label" x="200" y="382" text-anchor="middle">글로벌</text>
+        <text class="hex-score" x="200" y="396" text-anchor="middle">55</text>
+        <text class="hex-label" x="48" y="284" text-anchor="end">AI·자동화</text>
+        <text class="hex-score" x="48" y="298" text-anchor="end">80</text>
+        <text class="hex-label" x="48" y="110" text-anchor="end">회복탄력성</text>
+        <text class="hex-score" x="48" y="124" text-anchor="end">92</text>
+      </svg>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="sw-grid">
+      <div class="sw-card strength">
+        <div class="sw-head"><span class="sw-dot"></span>STRENGTHS</div>
+        <ul>
+          <li><b>데이터 기반 의사결정</b><span>마케팅·운영 지표를 근거로 빠르게 판단하고 실행하는 습관.</span></li>
+          <li><b>실행력과 회복탄력성</b><span>여러 차례의 사업 피벗과 불확실한 상황에서도 끝까지 완주하는 힘.</span></li>
+          <li><b>AI·자동화 도구 활용</b><span>생성형 AI와 자동화 툴을 실무에 접목해 효율을 끌어올리는 능력.</span></li>
+          <li><b>엔드투엔드 사업 운영</b><span>기획부터 마케팅, 재무, 조직 관리까지 총괄한 경험.</span></li>
+          <li><b>목표 지향적 학습력</b><span>필요한 것을 빠르게 습득해 결과로 증명하는 성향.</span></li>
+        </ul>
+      </div>
+      <div class="sw-card weakness">
+        <div class="sw-head"><span class="sw-dot"></span>GROWING AREAS</div>
+        <ul>
+          <li><b>전공 실험·연구 경험</b><span>정식 실험실 연구 경험이 적어, 반도체 공정 과정 이수로 보완 중.</span></li>
+          <li><b>실전 어학 스피킹</b><span>공인 어학 성적과 실전 회화 역량을 지속적으로 보강 중.</span></li>
+          <li><b>대규모 조직 협업 경험</b><span>소규모 팀 운영이 중심이라, 대규모 조직 단위 협업 경험은 상대적으로 적음.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>연락 주시면 빠르게 답변드리겠습니다</h2>
+    <p>SK하이닉스 양산기술을 비롯한 반도체·제조 현장 직무에 지원 중입니다. 이력서 및 상세 포트폴리오 PDF는 요청 시 전달드립니다.</p>
+    <div class="contact-row">
+      <a href="mailto:example@email.com">example@email.com</a>
+      <a href="tel:010-0000-0000">010-0000-0000</a>
+      <a href="#" aria-label="LinkedIn 프로필">LinkedIn</a>
+    </div>
+    <div class="fine">© 2026 Shin Seung-cheol. Built with Claude Code.</div>
+  </div>
+</footer>
+
+</body>
+</html>
