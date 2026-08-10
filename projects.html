@@ -194,7 +194,7 @@
   .stat-mini .n{font-family:'JetBrains Mono', monospace; font-weight:700; font-size:16px; color:var(--neon-text);}
   .stat-mini .l{font-size:10.5px; color:var(--ink-soft); margin-top:3px;}
   .code-window{width:100%;border-radius:16px;overflow:hidden;background:#10130F;color:#DDE7E2;box-shadow:0 14px 34px rgba(16,19,15,.16);font-family:'JetBrains Mono',monospace}.code-bar{display:flex;gap:6px;padding:11px 13px;background:#1C211E}.code-bar i{width:7px;height:7px;border-radius:50%;background:#2477FF}.code-bar i:nth-child(2){opacity:.6}.code-bar i:nth-child(3){opacity:.3}.code-lines{padding:18px;font-size:10px;line-height:2}.code-lines span{display:block}.code-lines .blue{color:#74A8FF}.code-lines .muted{color:#77817B}
-  .process-chip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:100%}.process-chip{padding:10px 8px;border-radius:12px;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.8);font-size:10px;text-align:center;color:var(--ink-soft)}.process-chip b{display:block;color:var(--neon-text);font-family:'JetBrains Mono',monospace;font-size:10px;margin-bottom:2px}
+  .training-photo{position:relative;width:100%;height:100%;min-height:300px;overflow:hidden}.training-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.training-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,15,33,.9),rgba(4,15,33,.08) 72%)}.training-caption{position:absolute;z-index:1;left:22px;right:22px;bottom:22px;color:#fff}.training-caption span{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;padding:6px 9px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(255,255,255,.14);backdrop-filter:blur(9px)}.training-caption strong{display:block;margin-top:9px;font-size:20px}
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -250,6 +250,21 @@
       <h2>주요 프로젝트</h2>
     </div>
 
+    <!-- Project: Semiconductor process training -->
+    <div class="star-card" id="process-training">
+      <div class="sc-head"><div class="sc-titles"><div class="sc-title">반도체 공정실습 297기</div><div class="sc-org">서울테크노파크 · 3일 과정 (수강 예정)</div></div><div class="sc-period">2026.08.19 / 21 / 22</div></div>
+      <div class="sc-body">
+        <div class="sc-visual"><div class="training-photo"><img src="assets/seoul-technopark.jpg" alt="서울테크노파크 건물 전경"><div class="training-caption"><span>SEOUL TECHNOPARK</span><strong>반도체 공정실습</strong></div></div></div>
+        <div class="sc-fields">
+          <div class="sc-field"><div class="sc-label">목적 (Objective)</div><p>데이터로 학습한 웨이퍼 결함과 수율 개념을 실제 장비·공정 흐름에 연결하고, 공정 조건과 결함 발생의 관계를 현장에서 이해하는 것.</p></div>
+          <div class="sc-field"><div class="sc-label">커리큘럼 (Curriculum)</div><ul><li>Day 1 — 반도체 개요·반도체 공정 이론 교육</li><li>Day 2 — Nano-3D, Photo Lithography, ICP-RIE(SiO₂ Etching), Dicing</li><li>Day 3 — Sputter, Electroplating, PR Strip, SEM</li></ul></div>
+          <div class="sc-field"><div class="sc-label">학습 계획 (Plan)</div><ul><li>포토·식각·증착 공정별 핵심 변수와 대표 결함 기록</li><li>SEM 관찰 결과를 웨이퍼맵 패턴 및 이상탐지 프로젝트와 연결</li><li>수강 후 장비·공정별 실습 내용과 인사이트 업데이트 예정</li></ul></div>
+          <div class="sc-field"><div class="sc-label">상태 (Status)</div><p><b>수강 예정</b> — 실제 이수 결과가 아닌 확정된 교육 일정과 학습 계획을 기준으로 기재했습니다.</p></div>
+        </div>
+      </div>
+      <div class="sc-footlink"><a class="btn" href="index.html#timeline-training">타임라인에서 보기 ↑</a> <a class="btn" href="projects.html#wafer-project">연결 프로젝트 보기 →</a></div>
+    </div>
+
     <!-- Project: Portfolio deployment -->
     <div class="star-card" id="portfolio-deployment">
       <div class="sc-head"><div class="sc-titles"><div class="sc-title">포트폴리오 웹 설계·코딩·배포</div><div class="sc-org">AI 에이전트 기반 웹 개발 프로젝트</div></div><div class="sc-period">2026.08</div></div>
@@ -263,21 +278,6 @@
         </div>
       </div>
       <div class="sc-footlink"><a class="btn" href="index.html#timeline-portfolio">타임라인에서 보기 ↑</a> <a class="btn" href="tech-stack.html">사용 기술 보기 →</a></div>
-    </div>
-
-    <!-- Project: Semiconductor process training -->
-    <div class="star-card" id="process-training">
-      <div class="sc-head"><div class="sc-titles"><div class="sc-title">반도체 공정실습 297기</div><div class="sc-org">서울테크노파크 · 3일 과정 (수강 예정)</div></div><div class="sc-period">2026.08.19 / 21 / 22</div></div>
-      <div class="sc-body">
-        <div class="sc-visual"><div class="process-chip-grid"><div class="process-chip"><b>DAY 1</b>반도체 이론</div><div class="process-chip"><b>DAY 2</b>Nano-3D</div><div class="process-chip"><b>PHOTO</b>Lithography</div><div class="process-chip"><b>ETCH</b>ICP-RIE</div><div class="process-chip"><b>DEPO</b>Sputter</div><div class="process-chip"><b>METRO</b>SEM</div></div></div>
-        <div class="sc-fields">
-          <div class="sc-field"><div class="sc-label">목적 (Objective)</div><p>데이터로 학습한 웨이퍼 결함과 수율 개념을 실제 장비·공정 흐름에 연결하고, 공정 조건과 결함 발생의 관계를 현장에서 이해하는 것.</p></div>
-          <div class="sc-field"><div class="sc-label">커리큘럼 (Curriculum)</div><ul><li>Day 1 — 반도체 개요·반도체 공정 이론 교육</li><li>Day 2 — Nano-3D, Photo Lithography, ICP-RIE(SiO₂ Etching), Dicing</li><li>Day 3 — Sputter, Electroplating, PR Strip, SEM</li></ul></div>
-          <div class="sc-field"><div class="sc-label">학습 계획 (Plan)</div><ul><li>포토·식각·증착 공정별 핵심 변수와 대표 결함 기록</li><li>SEM 관찰 결과를 웨이퍼맵 패턴 및 이상탐지 프로젝트와 연결</li><li>수강 후 장비·공정별 실습 내용과 인사이트 업데이트 예정</li></ul></div>
-          <div class="sc-field"><div class="sc-label">상태 (Status)</div><p><b>수강 예정</b> — 실제 이수 결과가 아닌 확정된 교육 일정과 학습 계획을 기준으로 기재했습니다.</p></div>
-        </div>
-      </div>
-      <div class="sc-footlink"><a class="btn" href="index.html#timeline-training">타임라인에서 보기 ↑</a> <a class="btn" href="projects.html#wafer-project">연결 프로젝트 보기 →</a></div>
     </div>
 
     <!-- Project 1: Wafer map analysis -->
