@@ -118,6 +118,16 @@
 
   /* ---------- WAFER SIGNATURE ---------- */
   .wafer-box{display:flex; justify-content:center; align-items:center;}
+  .wafer-process-photo{
+    position:relative; width:min(100%,360px); aspect-ratio:1/1; overflow:hidden;
+    border-radius:34px; border:1px solid rgba(255,255,255,.82);
+    background:rgba(255,255,255,.4);
+    box-shadow:0 24px 54px rgba(23,91,209,.17),inset 0 1px 0 rgba(255,255,255,.95);
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  }
+  .wafer-process-photo::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(36,119,255,.08);pointer-events:none;}
+  .wafer-process-photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s cubic-bezier(.22,1,.36,1);}
+  .wafer-process-photo:hover img{transform:scale(1.025);}
   .wafer-disc-hero{
     position:relative; width:320px; height:320px; border-radius:50%; overflow:hidden;
     background:
@@ -280,7 +290,7 @@
   <section class="hero">
     <div>
       <div class="eyebrow">SEMICONDUCTOR · MANUFACTURING</div>
-      <h1>반도체 배경에<br><em>실전 프로젝트 경험</em>을 더한<br>융합형 인재</h1>
+      <h1>반도체 배경에<br><em>실전 프로젝트 경험</em>을<br>더한 융합형 인재</h1>
       <p class="lead">
         4년간 3개 서비스를 직접 리드하며 마케팅·데이터·조직 운영을 총괄한 경험을,
         전자공학 전공 지식과 결합해 공정·품질 데이터를 다루는 현장 직무에 적용하고자 합니다.
@@ -292,24 +302,13 @@
     </div>
 
     <div class="wafer-box">
-      <div class="wafer-disc-hero">
-        <svg width="320" height="320" viewBox="0 0 320 320" role="img" aria-label="역량 구성을 웨이퍼 다이 맵 형태로 표현한 다이어그램">
-          <circle cx="160" cy="160" r="150" fill="none" stroke="rgba(16,19,15,0.20)" stroke-width="1.5"/>
-          <path d="M 60 60 L 100 20" stroke="rgba(16,19,15,0.20)" stroke-width="1.5" fill="none"/>
-          <!-- notch -->
-          <circle cx="160" cy="20" r="6" fill="#F1F5F2" stroke="rgba(16,19,15,0.20)" stroke-width="1.5"/>
-
-          <!-- die grid -->
-          <g>
-            <!-- row pattern approximating a circular wafer die layout -->
-            <g id="dies"></g>
-          </g>
-        </svg>
-      </div>
+      <figure class="wafer-process-photo">
+        <img src="assets/wafer-inspection-process.jpg" alt="자동 광학 검사 장비에서 실리콘 웨이퍼를 측정하는 반도체 공정 장면">
+      </figure>
     </div>
   </section>
 
-  <div class="wafer-caption" style="margin-top:-40px; margin-bottom:56px;">WAFER MAP — 4 DOMAIN COMPETENCY DIES</div>
+  <div class="wafer-caption" style="margin-top:-40px; margin-bottom:56px;">WAFER INSPECTION — AUTOMATED OPTICAL METROLOGY</div>
 
   <!-- ---------- STATS ---------- -->
   <section id="stats" style="padding-top:0;">
@@ -500,45 +499,6 @@
     <div class="fine">© 2026 Shin Seung-cheol. Built with Claude Code.</div>
   </div>
 </footer>
-
-<script>
-(function(){
-  // 4 domain dies arranged on a wafer, each subdivided into small dice for a "die map" feel.
-  var svg = document.getElementById('dies');
-  var cx = 160, cy = 160, R = 150;
-  var quadrants = [
-    {label:'ENG',  color:'#2477FF', angleStart:-135},
-    {label:'OPS',  color:'#10130F', angleStart:-45},
-    {label:'DATA', color:'#10130F', angleStart:45},
-    {label:'GLBL', color:'#10130F', angleStart:135}
-  ];
-  var ns = "http://www.w3.org/2000/svg";
-
-  quadrants.forEach(function(q, qi){
-    var rows = 4;
-    for(var r=1; r<=rows; r++){
-      var rad = (R/rows)*r - (R/rows)/2;
-      var count = 3 + r; // more dies further out
-      for(var i=0;i<count;i++){
-        var a = (q.angleStart + (90/count)*i) * Math.PI/180;
-        var x = cx + rad*Math.cos(a);
-        var y = cy + rad*Math.sin(a);
-        if(Math.hypot(x-cx,y-cy) > R-8) continue;
-        var rect = document.createElementNS(ns,'rect');
-        var size = 13;
-        rect.setAttribute('x', x-size/2);
-        rect.setAttribute('y', y-size/2);
-        rect.setAttribute('width', size);
-        rect.setAttribute('height', size);
-        rect.setAttribute('fill', q.color);
-        rect.setAttribute('opacity', 0.85 - r*0.05);
-        rect.setAttribute('class','die');
-        svg.appendChild(rect);
-      }
-    }
-  });
-})();
-</script>
 
 <script src="assets/mobile-nav.js?v=1"></script>
 </body>
