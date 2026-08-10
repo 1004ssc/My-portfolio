@@ -126,6 +126,13 @@
   .section-note{
     font-size:14px; color:var(--ink-soft); max-width:70ch; margin-bottom:28px;
   }
+  .process-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
+  @media (max-width:720px){.process-grid{grid-template-columns:1fr;}}
+  .process-card{background:rgba(255,255,255,.42); border:1px solid rgba(255,255,255,.55); padding:24px; box-shadow:0 8px 32px rgba(16,19,15,.05);}
+  .process-card .step{font-family:'JetBrains Mono',monospace; color:var(--neon-text); font-size:11px; letter-spacing:.08em;}
+  .process-card h3{font-size:17px; margin:8px 0;}
+  .process-card p{font-size:13.5px; color:var(--ink-soft);}
+  .process-result{margin-top:16px; border-left:3px solid var(--neon); background:rgba(36,119,255,.06); padding:12px 14px; font-size:12.5px; color:var(--ink-soft);}
 
   /* ---------- STATS ---------- */
   .stats{
@@ -245,17 +252,17 @@
 
   /* ---------- FOOTER ---------- */
   footer{
-    background:rgba(10,12,11,0.72); color:#EDEFEC;
+    background:#2477FF; color:#FFFFFF;
     backdrop-filter:blur(18px) saturate(160%); -webkit-backdrop-filter:blur(18px) saturate(160%);
     padding:48px 0 32px;
     border-top:1px solid var(--line);
   }
   footer h2{font-family:'Pretendard', sans-serif; font-weight:800; font-size:22px; margin-bottom:14px; color:#FFFFFF;}
-  footer p{color:#9CA4A0; font-size:14px; max-width:56ch;}
+  footer p{color:rgba(255,255,255,.78); font-size:14px; max-width:56ch;}
   .contact-row{margin-top:24px; display:flex; gap:28px; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; font-size:13px;}
   .contact-row a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.25); padding-bottom:2px;}
-  .contact-row a:hover{border-color:var(--neon); color:var(--neon);}
-  .fine{margin-top:36px; font-size:11px; color:#5C635F; border-top:1px solid #202422; padding-top:18px;}
+  .contact-row a:hover{border-color:#FFFFFF; color:#FFFFFF;}
+  .fine{margin-top:36px; font-size:11px; color:rgba(255,255,255,.62); border-top:1px solid rgba(255,255,255,.24); padding-top:18px;}
 </style>
 </head>
 <body>
@@ -497,6 +504,20 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="section-head">
+      <span class="lot-id">LOT-04</span>
+      <h2>분석에서 모델링까지</h2>
+    </div>
+    <p class="section-note">라벨을 읽는 데서 멈추지 않고 새 지표를 계산하고, 공정 이상 원인을 좁힌 뒤 결함 유형을 자동 분류하는 순서로 분석 난이도를 높였습니다.</p>
+    <div class="process-grid">
+      <article class="process-card"><div class="step">STEP 01 · INGEST</div><h3>원본 구조 분해</h3><p>Python 2 시절 생성된 pickle의 버전 호환 문제를 해결하고 811,457개 원본을 로드했습니다. 결측치와 타입을 정리한 뒤 9개 결함 라벨의 분포와 형상을 검증했습니다.</p><div class="process-result"><b>산출</b> — 81만 건 전처리 파이프라인과 결함 패턴 기준 정립</div></article>
+      <article class="process-card"><div class="step">STEP 02 · SPC</div><h3>수율 계산과 이상탐지</h3><p>웨이퍼맵의 양품·불량 다이를 직접 집계해 전체 수율을 새로 계산하고, 로트 단위 3-시그마 관리도로 관리 범위를 벗어난 이상 로트를 자동 탐지했습니다.</p><div class="process-result"><b>산출</b> — 로트별 수율 추이와 관리 상·하한선 기반 이상 신호</div></article>
+      <article class="process-card"><div class="step">STEP 03 · TRACE</div><h3>챔버 매칭 시뮬레이션</h3><p>수율 이상 발생 시 설비·챔버별 성과를 비교하는 원인추적 절차를 재현했습니다. 정답을 심은 합성 메타데이터를 집계해 문제 챔버를 다시 찾아내는 방식으로 방법론을 검증했습니다.</p><div class="process-result"><b>해석 주의</b> — 실제 데이터에는 설비 ID가 없어 이 단계는 방법론 시연이며 실제 원인 규명 결과가 아닙니다.</div></article>
+      <article class="process-card"><div class="step">STEP 04 · MODEL</div><h3>결함 패턴 자동 분류</h3><p>라벨링된 45,519개 웨이퍼를 대상으로 이미지 크기를 통일하고 클래스 불균형을 다룬 뒤 Random Forest 분류 모델을 학습·평가했습니다.</p><div class="process-result"><b>산출</b> — 혼동행렬과 클래스별 성능으로 모델의 강점·오분류 구간 확인</div></article>
     </div>
   </section>
 </div>
