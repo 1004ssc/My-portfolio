@@ -9,21 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&family=Pretendard:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F2EFE9;
-    --paper-dim:#E8E3D8;
-    --ink:#16232E;
-    --ink-soft:#4B5A63;
-    --celadon:#3F6E71;
-    --celadon-dark:#2C4E50;
-    --brass:#A9824C;
-    --line:#D3CCBB;
-    --white:#FBFAF7;
+    --bg:#0A0A0B;
+    --bg-alt:#131316;
+    --ink:#F2F2F0;
+    --ink-soft:#9A9BA1;
+    --line:#28282D;
+    --chrome:#D9DADC;
+    --danger:#FF4433;
+    --white:#FFFFFF;
     --radius:2px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--paper);
+    background:var(--bg);
     color:var(--ink);
     font-family:'Pretendard', -apple-system, sans-serif;
     line-height:1.6;
@@ -42,7 +41,7 @@
   /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(242,239,233,0.92);
+    background:rgba(10,10,11,0.86);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
@@ -51,10 +50,10 @@
     padding:18px 0;
   }
   .brand{font-family:'Noto Serif KR', serif; font-weight:700; font-size:17px; letter-spacing:0.02em;}
-  .brand span{color:var(--celadon);}
+  .brand span{color:var(--ink-soft);}
   .navlinks{display:flex; gap:28px; font-size:13px; color:var(--ink-soft);}
   .navlinks a{text-decoration:none; transition:color .2s;}
-  .navlinks a:hover, .navlinks a:focus-visible{color:var(--celadon-dark);}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--white);}
   @media (max-width:640px){ .navlinks{display:none;} }
 
   /* ---------- HERO ---------- */
@@ -71,12 +70,12 @@
     font-family:'JetBrains Mono', monospace;
     font-size:12px;
     letter-spacing:0.12em;
-    color:var(--brass);
+    color:var(--chrome);
     text-transform:uppercase;
     margin-bottom:18px;
     display:flex; align-items:center; gap:10px;
   }
-  .eyebrow::before{content:""; width:22px; height:1px; background:var(--brass);}
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--chrome);}
 
   .hero h1{
     font-family:'Noto Serif KR', serif;
@@ -84,11 +83,12 @@
     font-size:clamp(32px, 5vw, 50px);
     line-height:1.28;
     letter-spacing:-0.01em;
+    color:var(--white);
   }
   .hero h1 em{
     font-style:normal;
-    color:var(--celadon-dark);
-    border-bottom:2px solid var(--brass);
+    color:var(--white);
+    border-bottom:2px solid var(--danger);
   }
   .hero p.lead{
     margin-top:22px;
@@ -103,26 +103,40 @@
     border-radius:var(--radius);
     text-decoration:none;
     display:inline-block;
-    transition:transform .15s ease, background .2s ease;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
   }
-  .btn-primary{background:var(--ink); color:var(--white);}
-  .btn-primary:hover{background:var(--celadon-dark);}
-  .btn-ghost{border:1px solid var(--ink); color:var(--ink);}
-  .btn-ghost:hover{background:var(--ink); color:var(--white);}
-  .btn:focus-visible{outline:2px solid var(--celadon); outline-offset:2px;}
+  .btn-primary{background:var(--white); color:#0A0A0B;}
+  .btn-primary:hover{background:var(--chrome);}
+  .btn-ghost{border:1px solid var(--line); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--white); color:var(--white);}
+  .btn:focus-visible{outline:2px solid var(--chrome); outline-offset:2px;}
 
   /* ---------- WAFER SIGNATURE ---------- */
   .wafer-box{display:flex; justify-content:center; align-items:center;}
+  .wafer-disc-hero{
+    position:relative; width:320px; height:320px; border-radius:50%; overflow:hidden;
+    background:
+      radial-gradient(circle at 30% 24%, rgba(255,255,255,0.55), rgba(255,255,255,0) 38%),
+      conic-gradient(from 210deg at 50% 50%,
+        rgba(255,120,180,0.10), rgba(120,180,255,0.10), rgba(255,230,120,0.10),
+        rgba(160,120,255,0.10), rgba(120,255,210,0.10), rgba(255,120,180,0.10)),
+      repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 5px),
+      radial-gradient(circle at 50% 50%, #333338 0%, #1c1c20 55%, #0a0a0b 100%);
+    box-shadow:
+      inset 0 0 28px rgba(0,0,0,0.65),
+      inset 0 0 2px rgba(255,255,255,0.4),
+      0 0 0 1px rgba(255,255,255,0.06);
+  }
   .wafer-caption{
     text-align:center; margin-top:14px;
     font-family:'JetBrains Mono', monospace;
     font-size:11px; color:var(--ink-soft); letter-spacing:0.04em;
   }
   .die{transition:opacity .2s ease;}
-  .die:hover{opacity:0.72; cursor:default;}
+  .die:hover{opacity:0.6; cursor:default;}
   .die-label{
     font-family:'JetBrains Mono', monospace;
-    font-size:8.5px; fill:var(--white); letter-spacing:0.02em;
+    font-size:8.5px; fill:#0A0A0B; letter-spacing:0.02em;
   }
 
   /* ---------- SECTION SCAFFOLD ---------- */
@@ -135,10 +149,10 @@
   }
   .lot-id{
     font-family:'JetBrains Mono', monospace;
-    font-size:12px; color:var(--brass); letter-spacing:0.08em;
+    font-size:12px; color:var(--chrome); letter-spacing:0.08em;
   }
   .section-head h2{
-    font-family:'Noto Serif KR', serif; font-weight:700; font-size:24px;
+    font-family:'Noto Serif KR', serif; font-weight:700; font-size:24px; color:var(--white);
   }
 
   /* ---------- STATS STRIP ---------- */
@@ -149,8 +163,8 @@
     margin-bottom:8px;
   }
   @media (max-width:640px){ .stats{grid-template-columns:repeat(2,1fr);} }
-  .stat{background:var(--white); padding:22px 18px;}
-  .stat .num{font-family:'JetBrains Mono', monospace; font-size:26px; font-weight:600; color:var(--celadon-dark);}
+  .stat{background:var(--bg-alt); padding:22px 18px;}
+  .stat .num{font-family:'JetBrains Mono', monospace; font-size:26px; font-weight:600; color:var(--white);}
   .stat .lbl{font-size:12px; color:var(--ink-soft); margin-top:6px;}
 
   /* ---------- EXPERIENCE ---------- */
@@ -161,15 +175,15 @@
   @media (max-width:640px){ .exp-item{grid-template-columns:1fr; gap:8px;} }
   .exp-item:last-child{border-bottom:none;}
   .exp-period{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft);}
-  .exp-role{font-weight:700; font-size:16px; margin-bottom:4px;}
-  .exp-org{font-size:13px; color:var(--celadon-dark); margin-bottom:10px; font-weight:600;}
+  .exp-role{font-weight:700; font-size:16px; margin-bottom:4px; color:var(--white);}
+  .exp-org{font-size:13px; color:var(--chrome); margin-bottom:10px; font-weight:600;}
   .exp-desc{font-size:14.5px; color:var(--ink-soft); max-width:62ch;}
   .exp-desc ul{margin-top:8px; padding-left:18px;}
   .exp-desc li{margin-bottom:5px;}
   .tag-row{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;}
   .tag{
     font-family:'JetBrains Mono', monospace; font-size:11px;
-    background:var(--paper-dim); border:1px solid var(--line);
+    background:var(--bg-alt); border:1px solid var(--line);
     padding:4px 9px; color:var(--ink-soft);
   }
 
@@ -178,33 +192,34 @@
   @media (max-width:760px){ .skill-grid{grid-template-columns:1fr 1fr;} }
   @media (max-width:480px){ .skill-grid{grid-template-columns:1fr;} }
   .skill-card{
-    background:var(--white); border:1px solid var(--line); padding:22px;
+    background:var(--bg-alt); border:1px solid var(--line); padding:22px;
   }
   .skill-card .k{
-    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--brass);
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--chrome);
     margin-bottom:10px; letter-spacing:0.06em;
   }
-  .skill-card h3{font-family:'Noto Serif KR', serif; font-size:16px; margin-bottom:8px;}
+  .skill-card h3{font-family:'Noto Serif KR', serif; font-size:16px; margin-bottom:8px; color:var(--white);}
   .skill-card p{font-size:13.5px; color:var(--ink-soft);}
 
   /* ---------- EDUCATION ---------- */
   .edu-item{display:flex; justify-content:space-between; gap:20px; padding:16px 0; border-bottom:1px solid var(--line);}
   .edu-item:last-child{border-bottom:none;}
-  .edu-item .school{font-weight:700; font-size:15px;}
+  .edu-item .school{font-weight:700; font-size:15px; color:var(--white);}
   .edu-item .detail{font-size:13px; color:var(--ink-soft); margin-top:3px;}
   .edu-item .period{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft); white-space:nowrap;}
 
   /* ---------- FOOTER / CONTACT ---------- */
   footer{
-    background:var(--ink); color:var(--paper);
+    background:var(--bg-alt); color:var(--ink);
     padding:56px 0 32px;
+    border-top:1px solid var(--line);
   }
-  footer h2{font-family:'Noto Serif KR', serif; font-size:24px; margin-bottom:14px;}
-  footer p{color:#B7C2C6; font-size:14px; max-width:50ch;}
+  footer h2{font-family:'Noto Serif KR', serif; font-size:24px; margin-bottom:14px; color:var(--white);}
+  footer p{color:var(--ink-soft); font-size:14px; max-width:50ch;}
   .contact-row{margin-top:26px; display:flex; gap:28px; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; font-size:13px;}
   .contact-row a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:2px;}
-  .contact-row a:hover{border-color:var(--brass); color:var(--brass);}
-  .fine{margin-top:40px; font-size:11px; color:#6E7E85; border-top:1px solid #2A3944; padding-top:18px;}
+  .contact-row a:hover{border-color:var(--white); color:var(--white);}
+  .fine{margin-top:40px; font-size:11px; color:#6E6E73; border-top:1px solid var(--line); padding-top:18px;}
 </style>
 </head>
 <body>
@@ -240,18 +255,20 @@
     </div>
 
     <div class="wafer-box">
-      <svg width="320" height="320" viewBox="0 0 320 320" role="img" aria-label="역량 구성을 웨이퍼 다이 맵 형태로 표현한 다이어그램">
-        <circle cx="160" cy="160" r="150" fill="none" stroke="#D3CCBB" stroke-width="1.5"/>
-        <path d="M 60 60 L 100 20" stroke="#D3CCBB" stroke-width="1.5" fill="none"/>
-        <!-- notch -->
-        <circle cx="160" cy="20" r="6" fill="#F2EFE9" stroke="#D3CCBB" stroke-width="1.5"/>
+      <div class="wafer-disc-hero">
+        <svg width="320" height="320" viewBox="0 0 320 320" role="img" aria-label="역량 구성을 웨이퍼 다이 맵 형태로 표현한 다이어그램">
+          <circle cx="160" cy="160" r="150" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+          <path d="M 60 60 L 100 20" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none"/>
+          <!-- notch -->
+          <circle cx="160" cy="20" r="6" fill="#0A0A0B" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
 
-        <!-- die grid -->
-        <g>
-          <!-- row pattern approximating a circular wafer die layout -->
-          <g id="dies"></g>
-        </g>
-      </svg>
+          <!-- die grid -->
+          <g>
+            <!-- row pattern approximating a circular wafer die layout -->
+            <g id="dies"></g>
+          </g>
+        </svg>
+      </div>
     </div>
   </section>
 
@@ -406,10 +423,10 @@
   var svg = document.getElementById('dies');
   var cx = 160, cy = 160, R = 150;
   var quadrants = [
-    {label:'ENG',  color:'#3F6E71', angleStart:-135},
-    {label:'OPS',  color:'#A9824C', angleStart:-45},
-    {label:'DATA', color:'#2C4E50', angleStart:45},
-    {label:'GLBL', color:'#6E7E85', angleStart:135}
+    {label:'ENG',  color:'#FF4433', angleStart:-135},
+    {label:'OPS',  color:'#F2F2F0', angleStart:-45},
+    {label:'DATA', color:'#F2F2F0', angleStart:45},
+    {label:'GLBL', color:'#F2F2F0', angleStart:135}
   ];
   var ns = "http://www.w3.org/2000/svg";
 
