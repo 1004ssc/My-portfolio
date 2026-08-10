@@ -95,18 +95,19 @@
   .activity-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; align-items:start;}
   @media (max-width:760px){ .activity-grid{grid-template-columns:1fr;} }
   .activity-tile{
-    background:rgba(255,255,255,0.42); border:1px solid rgba(255,255,255,0.55); overflow:hidden;
+    background:rgba(255,255,255,0.42); border:1px solid rgba(255,255,255,0.72); overflow:hidden; border-radius:24px;
     backdrop-filter:blur(18px) saturate(180%); -webkit-backdrop-filter:blur(18px) saturate(180%);
-    box-shadow:0 8px 32px rgba(16,19,15,0.05);
+    box-shadow:0 14px 38px rgba(23,91,209,0.08); transition:transform .25s ease,box-shadow .25s ease;
   }
+  .activity-tile:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(23,91,209,.14);}
   .activity-tile summary{
-    list-style:none; cursor:pointer; padding:30px 20px;
+    list-style:none; cursor:pointer; padding:30px 20px; min-height:210px; overflow:hidden;
     display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px;
-    transition:background .15s ease;
+    justify-content:center; transition:background .15s ease;
     position:relative;
   }
   .activity-tile summary::-webkit-details-marker{display:none;}
-  .activity-tile summary:hover{background:rgba(36,119,255,0.06);}
+  .activity-tile summary:hover{background:rgba(36,119,255,0.035);}
   .activity-tile[open] summary{border-bottom:1px solid rgba(255,255,255,0.5); background:rgba(255,255,255,0.25);}
   .tile-icon{width:40px; height:40px; color:var(--neon-text);}
   .tile-icon svg{width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;}
@@ -118,6 +119,18 @@
     transition:transform .2s ease;
   }
   .activity-tile[open] .tile-chevron{transform:rotate(45deg); color:var(--neon-text);}
+  .tile-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.22,1,.36,1);}
+  .photo-tile summary::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,31,.82),rgba(5,15,31,.06) 72%);}
+  .photo-tile:hover .tile-photo{transform:scale(1.045);}
+  .photo-tile .tile-label,.photo-tile .tile-count,.photo-tile .tile-chevron,.photo-tile .place-chip{position:relative;z-index:2;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.36);}
+  .photo-tile .tile-label{font-size:20px;margin-top:auto}.photo-tile .tile-count{color:rgba(255,255,255,.76)}.photo-tile .tile-chevron{position:absolute;color:#fff}
+  .place-chip{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;padding:6px 10px;border:1px solid rgba(255,255,255,.5);border-radius:999px;background:rgba(255,255,255,.14);backdrop-filter:blur(10px)}
+  .school-tile summary{background:radial-gradient(circle at 14% 0,rgba(36,119,255,.13),transparent 46%),linear-gradient(145deg,rgba(255,255,255,.8),rgba(241,247,255,.46));}
+  .school-tile summary::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-62px;bottom:-74px;background:rgba(36,119,255,.055);}
+  .tile-logo{position:relative;z-index:1;width:72px;height:72px;object-fit:contain;padding:8px;filter:drop-shadow(0 10px 14px rgba(16,19,15,.1));transition:transform .3s ease;}
+  .school-tile:hover .tile-logo{transform:scale(1.07) rotate(-2deg)}
+  .dual-logos{display:flex;align-items:center;justify-content:center;margin-bottom:2px}.dual-logos .tile-logo{width:64px;height:64px;margin:0 -4px;border-radius:50%;background:rgba(255,255,255,.76);border:3px solid rgba(255,255,255,.92)}
+  .school-name{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:var(--neon-text);position:relative;z-index:1}
 
   .activity-detail{padding:18px 22px 22px;}
   .a-item{padding:14px 0; border-bottom:1px solid var(--line); text-align:left;}
@@ -163,19 +176,18 @@
   <section class="hero">
     <div class="eyebrow">EXTRACURRICULAR</div>
     <h1>대외활동</h1>
-    <p class="lead">해외 경험, 동아리, 봉사활동을 각각의 활동 단위로 나눠 정리했습니다. 아이콘을 클릭하면 상세 내역이 펼쳐집니다.</p>
+    <p class="lead">해외 경험, 동아리, 봉사활동을 각각의 활동 단위로 나눠 정리했습니다. 카드를 클릭하면 상세 내역이 펼쳐집니다.</p>
   </section>
 
   <section>
     <div class="activity-grid">
 
       <!-- 해외경험: 싱가포르 -->
-      <details class="activity-tile" id="singapore">
+      <details class="activity-tile photo-tile" id="singapore">
         <summary>
+          <img class="tile-photo" src="https://imagel.sekainavi.com/images/templates/SINGAPORE/1000076/ec0c2579fa485854_S.jpg" alt="싱가포르 멀라이언 파크 야경">
           <span class="tile-chevron">+</span>
-          <span class="tile-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
-          </span>
+          <span class="place-chip">MERLION · SINGAPORE</span>
           <span class="tile-label">싱가포르</span>
           <span class="tile-count">2020.01</span>
         </summary>
@@ -190,13 +202,12 @@
       </details>
 
       <!-- 해외경험: 미국 -->
-      <details class="activity-tile" id="silicon-valley">
+      <details class="activity-tile photo-tile" id="silicon-valley">
         <summary>
+          <img class="tile-photo" src="https://gcp-na-images.contentstack.com/v3/assets/bltea6093859af6183b/bltdca9cff3613cb018/6989368fdb2987e6772604b7/gettyimages-520636478.jpg?branch=production" alt="미국 실리콘밸리 인텔 캠퍼스 전경">
           <span class="tile-chevron">+</span>
-          <span class="tile-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
-          </span>
-          <span class="tile-label">미국</span>
+          <span class="place-chip">SILICON VALLEY · USA</span>
+          <span class="tile-label">실리콘밸리</span>
           <span class="tile-count">2023.01 — 02</span>
         </summary>
         <div class="activity-detail">
@@ -210,12 +221,11 @@
       </details>
 
       <!-- 동아리: 창업동아리 -->
-      <details class="activity-tile" id="startup-club">
+      <details class="activity-tile school-tile" id="startup-club">
         <summary>
           <span class="tile-chevron">+</span>
-          <span class="tile-icon">
-            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 2.7-6.5 6-6.5s6 2.5 6 6.5"/><circle cx="17.5" cy="9" r="2.3"/><path d="M15.3 20c0-3 1.2-5.3 3.2-5.9"/></svg>
-          </span>
+          <img class="tile-logo" src="https://www.hanyang.ac.kr/documents/10548136/260876403/HYU_symbol_basic_png.png/9109a7d4-2ec7-84c1-2085-d24492a51d2e?download=true&amp;t=1769752711290" alt="한양대학교 심볼마크">
+          <span class="school-name">HANYANG UNIVERSITY</span>
           <span class="tile-label">창업동아리</span>
           <span class="tile-count">2023.03 — 12</span>
         </summary>
@@ -230,12 +240,11 @@
       </details>
 
       <!-- 동아리: 미술동아리 -->
-      <details class="activity-tile">
+      <details class="activity-tile school-tile">
         <summary>
           <span class="tile-chevron">+</span>
-          <span class="tile-icon">
-            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 2.7-6.5 6-6.5s6 2.5 6 6.5"/><circle cx="17.5" cy="9" r="2.3"/><path d="M15.3 20c0-3 1.2-5.3 3.2-5.9"/></svg>
-          </span>
+          <span class="dual-logos"><img class="tile-logo" src="https://edu.chungbuk.ac.kr/edu/images/main/slide_logo24.png" alt="충북대학교 심볼마크"><img class="tile-logo" src="https://www.hanyang.ac.kr/documents/10548136/260876403/HYU_symbol_basic_png.png/9109a7d4-2ec7-84c1-2085-d24492a51d2e?download=true&amp;t=1769752711290" alt="한양대학교 심볼마크"></span>
+          <span class="school-name">CBNU × HANYANG</span>
           <span class="tile-label">미술동아리</span>
           <span class="tile-count">2018 — 2022</span>
         </summary>
@@ -249,12 +258,11 @@
       </details>
 
       <!-- 봉사활동: 충북대 시절 -->
-      <details class="activity-tile">
+      <details class="activity-tile school-tile">
         <summary>
           <span class="tile-chevron">+</span>
-          <span class="tile-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.7-9C.9 8 2.6 4.3 6.3 4.3c2.1 0 3.7 1.3 4.2 2.7.6-1.4 2.2-2.7 4.2-2.7 3.7 0 5.4 3.7 4 6.9-2.2 4.4-9.7 9.3-9.7 9.3z"/></svg>
-          </span>
+          <img class="tile-logo" src="https://edu.chungbuk.ac.kr/edu/images/main/slide_logo24.png" alt="충북대학교 심볼마크">
+          <span class="school-name">CHUNGBUK NATIONAL UNIVERSITY</span>
           <span class="tile-label">충북대 봉사</span>
           <span class="tile-count">2018 — 2019</span>
         </summary>
@@ -273,12 +281,11 @@
       </details>
 
       <!-- 봉사활동: 한양대 시절 -->
-      <details class="activity-tile">
+      <details class="activity-tile school-tile">
         <summary>
           <span class="tile-chevron">+</span>
-          <span class="tile-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.7-9C.9 8 2.6 4.3 6.3 4.3c2.1 0 3.7 1.3 4.2 2.7.6-1.4 2.2-2.7 4.2-2.7 3.7 0 5.4 3.7 4 6.9-2.2 4.4-9.7 9.3-9.7 9.3z"/></svg>
-          </span>
+          <img class="tile-logo" src="https://www.hanyang.ac.kr/documents/10548136/260876403/HYU_symbol_basic_png.png/9109a7d4-2ec7-84c1-2085-d24492a51d2e?download=true&amp;t=1769752711290" alt="한양대학교 심볼마크">
+          <span class="school-name">HANYANG UNIVERSITY</span>
           <span class="tile-label">한양대 봉사</span>
           <span class="tile-count">2022 — 2023</span>
         </summary>
