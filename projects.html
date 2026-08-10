@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>프로젝트 | 신승철 포트폴리오</title>
-<meta name="description" content="경험기술서 형식으로 정리한 주요 프로젝트 3건">
+<meta name="description" content="데이터 분석, 웹 배포, 반도체 공정 실습과 사업 운영 프로젝트">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -193,6 +193,8 @@
   }
   .stat-mini .n{font-family:'JetBrains Mono', monospace; font-weight:700; font-size:16px; color:var(--neon-text);}
   .stat-mini .l{font-size:10.5px; color:var(--ink-soft); margin-top:3px;}
+  .code-window{width:100%;border-radius:16px;overflow:hidden;background:#10130F;color:#DDE7E2;box-shadow:0 14px 34px rgba(16,19,15,.16);font-family:'JetBrains Mono',monospace}.code-bar{display:flex;gap:6px;padding:11px 13px;background:#1C211E}.code-bar i{width:7px;height:7px;border-radius:50%;background:#2477FF}.code-bar i:nth-child(2){opacity:.6}.code-bar i:nth-child(3){opacity:.3}.code-lines{padding:18px;font-size:10px;line-height:2}.code-lines span{display:block}.code-lines .blue{color:#74A8FF}.code-lines .muted{color:#77817B}
+  .process-chip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:100%}.process-chip{padding:10px 8px;border-radius:12px;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.8);font-size:10px;text-align:center;color:var(--ink-soft)}.process-chip b{display:block;color:var(--neon-text);font-family:'JetBrains Mono',monospace;font-size:10px;margin-bottom:2px}
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -237,7 +239,7 @@
     <div class="eyebrow">EXPERIENCE PORTFOLIO</div>
     <h1>프로젝트</h1>
     <p class="lead">
-      경험기술서 형식(상황·과제·수행·성과)으로 정리한 주요 프로젝트 3건입니다. 학력·수상 등을 포함한 전체 타임라인은 홈에서 볼 수 있습니다.
+      데이터 분석, 웹 설계·배포, 반도체 공정 학습과 사업 운영 경험을 프로젝트 단위로 정리했습니다. 학력·수상 등을 포함한 전체 타임라인은 홈에서 볼 수 있습니다.
     </p>
   </section>
 
@@ -248,6 +250,36 @@
       <h2>주요 프로젝트</h2>
     </div>
 
+    <!-- Project: Portfolio deployment -->
+    <div class="star-card" id="portfolio-deployment">
+      <div class="sc-head"><div class="sc-titles"><div class="sc-title">포트폴리오 웹 설계·코딩·배포</div><div class="sc-org">AI 에이전트 기반 웹 개발 프로젝트</div></div><div class="sc-period">2026.08</div></div>
+      <div class="sc-body">
+        <div class="sc-visual"><div class="code-window"><div class="code-bar"><i></i><i></i><i></i></div><div class="code-lines"><span class="blue">portfolio/</span><span>├─ index.html</span><span>├─ projects.html</span><span>├─ tech-stack.html</span><span class="muted">└─ deploy → production</span></div></div></div>
+        <div class="sc-fields">
+          <div class="sc-field"><div class="sc-label">배경 (Situation)</div><p>전공, 사업 운영, 데이터 분석 경험을 채용 담당자가 빠르게 탐색할 수 있는 단일 웹 포트폴리오가 필요했습니다.</p></div>
+          <div class="sc-field"><div class="sc-label">과제 (Task)</div><p>모바일·데스크톱에서 일관된 디자인을 유지하며, 흩어진 프로젝트 설명을 서로 연결하고 실제 URL로 배포하는 것.</p></div>
+          <div class="sc-field"><div class="sc-label">수행 (Action)</div><ul><li>HTML·CSS·JavaScript 기반 반응형 다중 페이지 설계</li><li>Claude Code·Codex를 활용한 구현, 링크 검증과 UI 반복 개선</li><li>GitHub main 브랜치와 Vercel Production 자동 배포 연결</li><li>모바일 슬라이드 메뉴, 글래스모피즘 카드, 프로젝트 앵커 구조 구현</li></ul></div>
+          <div class="sc-field"><div class="sc-label">성과 (Result)</div><ul><li>타임라인·프로젝트·역량·기술스택·대외활동 <b>5개 정보 구조</b> 완성</li><li>변경사항을 커밋하면 운영 사이트에 반영되는 배포 흐름 구축</li><li>데이터 분석 결과와 이미지 자산을 포함한 웹 포트폴리오 공개</li></ul></div>
+        </div>
+      </div>
+      <div class="sc-footlink"><a class="btn" href="index.html#timeline-portfolio">타임라인에서 보기 ↑</a> <a class="btn" href="tech-stack.html">사용 기술 보기 →</a></div>
+    </div>
+
+    <!-- Project: Semiconductor process training -->
+    <div class="star-card" id="process-training">
+      <div class="sc-head"><div class="sc-titles"><div class="sc-title">반도체 공정실습 297기</div><div class="sc-org">서울테크노파크 · 3일 과정 (수강 예정)</div></div><div class="sc-period">2026.08.19 / 21 / 22</div></div>
+      <div class="sc-body">
+        <div class="sc-visual"><div class="process-chip-grid"><div class="process-chip"><b>DAY 1</b>반도체 이론</div><div class="process-chip"><b>DAY 2</b>Nano-3D</div><div class="process-chip"><b>PHOTO</b>Lithography</div><div class="process-chip"><b>ETCH</b>ICP-RIE</div><div class="process-chip"><b>DEPO</b>Sputter</div><div class="process-chip"><b>METRO</b>SEM</div></div></div>
+        <div class="sc-fields">
+          <div class="sc-field"><div class="sc-label">목적 (Objective)</div><p>데이터로 학습한 웨이퍼 결함과 수율 개념을 실제 장비·공정 흐름에 연결하고, 공정 조건과 결함 발생의 관계를 현장에서 이해하는 것.</p></div>
+          <div class="sc-field"><div class="sc-label">커리큘럼 (Curriculum)</div><ul><li>Day 1 — 반도체 개요·반도체 공정 이론 교육</li><li>Day 2 — Nano-3D, Photo Lithography, ICP-RIE(SiO₂ Etching), Dicing</li><li>Day 3 — Sputter, Electroplating, PR Strip, SEM</li></ul></div>
+          <div class="sc-field"><div class="sc-label">학습 계획 (Plan)</div><ul><li>포토·식각·증착 공정별 핵심 변수와 대표 결함 기록</li><li>SEM 관찰 결과를 웨이퍼맵 패턴 및 이상탐지 프로젝트와 연결</li><li>수강 후 장비·공정별 실습 내용과 인사이트 업데이트 예정</li></ul></div>
+          <div class="sc-field"><div class="sc-label">상태 (Status)</div><p><b>수강 예정</b> — 실제 이수 결과가 아닌 확정된 교육 일정과 학습 계획을 기준으로 기재했습니다.</p></div>
+        </div>
+      </div>
+      <div class="sc-footlink"><a class="btn" href="index.html#timeline-training">타임라인에서 보기 ↑</a> <a class="btn" href="projects.html#wafer-project">연결 프로젝트 보기 →</a></div>
+    </div>
+
     <!-- Project 1: Wafer map analysis -->
     <div class="star-card" id="wafer-project">
       <div class="sc-head">
@@ -255,7 +287,7 @@
           <div class="sc-title">웨이퍼맵 결함 패턴 분석</div>
           <div class="sc-org">AI 데이터 분석 사이드 프로젝트</div>
         </div>
-        <div class="sc-period">2026.08</div>
+        <div class="sc-period">2026.07</div>
       </div>
       <div class="sc-body">
         <div class="sc-visual">
