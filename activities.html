@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>대외활동 | 신승철 포트폴리오</title>
-<meta name="description" content="대외활동 페이지 (준비 중)">
+<meta name="description" content="해외 경험, 동아리, 봉사활동을 정리한 대외활동 페이지">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -33,8 +33,6 @@
     font-family:'Pretendard', -apple-system, sans-serif;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
-    min-height:100vh;
-    display:flex; flex-direction:column;
   }
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important; transition:none !important;}
@@ -61,9 +59,8 @@
   .navlinks a.active{color:var(--ink); font-weight:600; box-shadow:0 2px 0 var(--neon);}
   @media (max-width:640px){ .navlinks{display:none;} }
 
-  main{flex:1; display:flex; align-items:center;}
-
-  .empty-wrap{padding:96px 0;}
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 40px;}
   .eyebrow{
     font-family:'JetBrains Mono', monospace;
     font-size:12px;
@@ -74,33 +71,55 @@
     display:flex; align-items:center; gap:10px;
   }
   .eyebrow::before{content:""; width:22px; height:1px; background:var(--neon);}
-  h1{
+  .hero h1{
     font-family:'Pretendard', sans-serif;
     font-weight:800;
-    font-size:clamp(28px, 4.2vw, 40px);
+    font-size:clamp(30px, 4.6vw, 46px);
+    line-height:1.32;
     letter-spacing:-0.01em;
-    margin-bottom:18px;
+    color:var(--ink);
   }
-  .empty-card{
-    margin-top:36px;
-    border:1px dashed var(--line);
-    background:var(--bg-alt);
-    padding:48px 32px;
-    text-align:center;
-    max-width:560px;
+  .hero p.lead{
+    margin-top:22px;
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:66ch;
   }
-  .empty-card .tag{
-    display:inline-block;
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px; letter-spacing:0.1em;
-    color:var(--neon-text);
-    border:1px solid var(--line);
-    background:var(--white);
-    padding:6px 12px;
-    box-shadow:0 0 16px var(--neon-glow);
-    margin-bottom:18px;
+
+  section{padding:16px 0 64px;}
+
+  /* ---------- ACTIVITY GRID (click-to-expand tiles) ---------- */
+  .activity-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:start;}
+  @media (max-width:760px){ .activity-grid{grid-template-columns:1fr;} }
+  .activity-tile{
+    background:var(--bg-alt); border:1px solid var(--line); overflow:hidden;
   }
-  .empty-card p{color:var(--ink-soft); font-size:14px; max-width:44ch; margin:0 auto;}
+  .activity-tile summary{
+    list-style:none; cursor:pointer; padding:30px 20px;
+    display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px;
+    transition:background .15s ease;
+    position:relative;
+  }
+  .activity-tile summary::-webkit-details-marker{display:none;}
+  .activity-tile summary:hover{background:rgba(36,119,255,0.06);}
+  .activity-tile[open] summary{border-bottom:1px solid var(--line); background:var(--white);}
+  .tile-icon{width:40px; height:40px; color:var(--neon-text);}
+  .tile-icon svg{width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;}
+  .tile-label{font-weight:700; font-size:15px; color:var(--ink);}
+  .tile-count{font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-soft);}
+  .tile-chevron{
+    position:absolute; top:14px; right:14px;
+    font-family:'JetBrains Mono', monospace; font-size:14px; color:var(--ink-soft);
+    transition:transform .2s ease;
+  }
+  .activity-tile[open] .tile-chevron{transform:rotate(45deg); color:var(--neon-text);}
+
+  .activity-detail{padding:18px 22px 22px;}
+  .a-item{padding:14px 0; border-bottom:1px solid var(--line); text-align:left;}
+  .a-item:last-child{border-bottom:none;}
+  .a-item .a-period{font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--neon-text); letter-spacing:0.04em;}
+  .a-item .a-title{font-weight:700; font-size:14px; color:var(--ink); margin-top:3px;}
+  .a-item .a-desc{font-size:12.5px; color:var(--ink-soft); margin-top:4px;}
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -123,7 +142,7 @@
     <nav>
       <div class="brand"><a href="index.html" style="text-decoration:none; color:inherit;">SEUNGCHEOL SHIN</a></div>
       <div class="navlinks">
-        <a href="index.html#projects">프로젝트</a>
+        <a href="projects.html">프로젝트</a>
         <a href="skills.html">역량구성</a>
         <a href="strengths.html">강점·약점</a>
         <a href="activities.html" class="active">대외활동</a>
@@ -132,16 +151,101 @@
   </div>
 </header>
 
-<main>
-  <div class="wrap empty-wrap">
+<div class="wrap">
+  <section class="hero">
     <div class="eyebrow">EXTRACURRICULAR</div>
     <h1>대외활동</h1>
-    <div class="empty-card">
-      <div class="tag">COMING SOON</div>
-      <p>대외활동 내용을 준비 중입니다. 곧 업데이트될 예정이니 조금만 기다려 주세요.</p>
+    <p class="lead">해외 경험, 동아리, 봉사활동을 카테고리별로 정리했습니다. 아이콘을 클릭하면 상세 내역이 펼쳐집니다.</p>
+  </section>
+
+  <section>
+    <div class="activity-grid">
+
+      <!-- 해외경험 -->
+      <details class="activity-tile">
+        <summary>
+          <span class="tile-chevron">+</span>
+          <span class="tile-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+          </span>
+          <span class="tile-label">해외 경험</span>
+          <span class="tile-count">2건</span>
+        </summary>
+        <div class="activity-detail">
+          <div class="a-item">
+            <div class="a-period">2023.01 — 02</div>
+            <div class="a-title">실리콘밸리 파견 프로그램</div>
+            <div class="a-desc">한양대학교 창업지원단 주관, 학부생 3인 중 1인 선발. NVIDIA·Google·Apple·Marvell·Stanford Univ·KOTRA 실리콘밸리 사무소·Plug&amp;Play 등을 방문하고, 현지 진출 동문(반도체 설계 엔지니어, NVIDIA 시니어 연구원 등)과 1:1 멘토링을 진행했습니다.</div>
+          </div>
+          <div class="a-item">
+            <div class="a-period">2020.01</div>
+            <div class="a-title">싱가포르 Global Youth Startup Camp</div>
+            <div class="a-desc">충북대학교 창업지원단 학내 선발로 파견. 4인 팀으로 참가해 Excellence Prize를 수상했습니다.</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- 동아리 -->
+      <details class="activity-tile">
+        <summary>
+          <span class="tile-chevron">+</span>
+          <span class="tile-icon">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 2.7-6.5 6-6.5s6 2.5 6 6.5"/><circle cx="17.5" cy="9" r="2.3"/><path d="M15.3 20c0-3 1.2-5.3 3.2-5.9"/></svg>
+          </span>
+          <span class="tile-label">동아리</span>
+          <span class="tile-count">2건</span>
+        </summary>
+        <div class="activity-detail">
+          <div class="a-item">
+            <div class="a-period">2023.03 — 12</div>
+            <div class="a-title">한양대학교 창업동아리 (팀 대표)</div>
+            <div class="a-desc">기획·개발을 맡은 팀 대표로 활동. 시제품 제작과 멘토링을 거쳐 창업활동지원금 300만 원(최고 한도액 트랙)을 받았고, 창업클럽 경진대회에서 장려상을 수상했습니다.</div>
+          </div>
+          <div class="a-item">
+            <div class="a-period">2018.03 — 2022.06</div>
+            <div class="a-title">미술동아리 (충북대·한양대, 부원)</div>
+            <div class="a-desc">매 학기 개인 작품을 제작하고, 정기 전시회에 총 5회 출품했습니다.</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- 봉사활동 -->
+      <details class="activity-tile">
+        <summary>
+          <span class="tile-chevron">+</span>
+          <span class="tile-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.7-9C.9 8 2.6 4.3 6.3 4.3c2.1 0 3.7 1.3 4.2 2.7.6-1.4 2.2-2.7 4.2-2.7 3.7 0 5.4 3.7 4 6.9-2.2 4.4-9.7 9.3-9.7 9.3z"/></svg>
+          </span>
+          <span class="tile-label">봉사활동</span>
+          <span class="tile-count">누적 133.5시간+</span>
+        </summary>
+        <div class="activity-detail">
+          <div class="a-item">
+            <div class="a-period">2022.12 — 2023.02</div>
+            <div class="a-title">선재누리 (한양대 사회봉사교과목)</div>
+            <div class="a-desc">서울 성동구 소재 한부모가족 복지시설에서 30시간 이상 봉사했습니다.</div>
+          </div>
+          <div class="a-item">
+            <div class="a-period">2019.03 — 10</div>
+            <div class="a-title">굿네이버스 인터내셔날 충청본부</div>
+            <div class="a-desc">아동학대예방 캠페인 기획·진행, 편지쓰기대회 심사 등 총 12회 40시간 활동했습니다.</div>
+          </div>
+          <div class="a-item">
+            <div class="a-period">2018.09 — 11</div>
+            <div class="a-title">청주 C.C.C. 무료급식소</div>
+            <div class="a-desc">사랑의 무료급식소 준비·배식·정리 활동으로 총 3회 13.5시간 참여했습니다.</div>
+          </div>
+          <div class="a-item">
+            <div class="a-period">2012 — 2015</div>
+            <div class="a-title">서울시립강동노인종합복지관</div>
+            <div class="a-desc">정서지원(말벗·안부전화)과 생활지원(경로식당 배식) 등으로 다수 활동했습니다. (VMS 인증서 기준 전체 누적 49건·133시간 30분)</div>
+          </div>
+        </div>
+      </details>
+
     </div>
-  </div>
-</main>
+  </section>
+</div>
 
 <footer id="contact">
   <div class="wrap">
